@@ -1,11 +1,11 @@
-import { GetPartyListResponse } from '@/@types/party/type';
+import { PartyListDetail } from '@/@types/party/type';
 import { Chip } from 'buooy-design-system';
 import dayjs from 'dayjs';
 import { Calendar, MapPin, UsersRound } from 'lucide-react';
 import { useRouter } from 'next/router';
 
 type Props = {
-  data?: GetPartyListResponse[number];
+  data?: PartyListDetail;
   noDataMessage?: string;
   description?: string;
   icon?: React.ReactNode;

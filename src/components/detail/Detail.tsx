@@ -52,10 +52,11 @@ export const Detail = () => {
 
   const { partyId: id } = router.query;
 
-  const partyId = Number(id);
+  const partyId = typeof id === 'string' ? Number(id) : undefined;
+  const isValidPartyId = partyId !== undefined && !isNaN(partyId);
 
-  const { data, isLoading } = useGetPartyDetails(partyId, !!id);
-  const { data: commentListData } = useGetPartyCommentList(partyId, !!id);
+  const { data, isLoading } = useGetPartyDetails(partyId, isValidPartyId);
+  const { data: commentListData } = useGetPartyCommentList(partyId, isValidPartyId);
   const { data: currentUserData } = useGetUserMe(isLoggedIn);
   const { data: likeData } = useGetLikeList(isLoggedIn);
 

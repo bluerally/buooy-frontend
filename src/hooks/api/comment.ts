@@ -42,9 +42,10 @@ const useGetPartyCommentList = (
 ) => {
   const queryKey = ['comment-list', partId];
   const snackbar = useSnackbar();
+  const isValidPartyId = partId !== undefined && !isNaN(Number(partId));
 
-  return useQuery(queryKey, () => CommentApi.get(partId ?? 1), {
-    enabled: isSearch,
+  return useQuery(queryKey, () => CommentApi.get(partId!), {
+    enabled: isSearch && isValidPartyId,
     onError: (error: AxiosError<any>) =>
       snackbar.warning({ content: `${error.code}  모임 코멘트 리스트 실패` }),
   });

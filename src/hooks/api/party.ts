@@ -126,9 +126,11 @@ const useGetPartyDetails = (
 ) => {
   const snackbar = useSnackbar();
   const queryKey = ['party-detail', partyId];
+  const isValidPartyId =
+    partyId !== undefined && !isNaN(Number(partyId));
 
   return useQuery(queryKey, () => PartyApi.getDetail(partyId), {
-    enabled: isSearch,
+    enabled: isSearch && isValidPartyId,
     onError: (error: AxiosError<any>) =>
       snackbar.warning({ content: `${error.code} 모임 디테일 조회 실패` }),
   });
