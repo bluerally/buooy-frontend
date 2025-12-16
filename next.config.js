@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['buooy.s3.ap-northeast-2.amazonaws.com'],
+    domains: ['buooy.cloud'],
   },
   compiler: {
     styledComponents:
