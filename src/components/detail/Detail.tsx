@@ -53,7 +53,7 @@ export const Detail = () => {
   const { partyId: id } = router.query;
 
   const partyId = typeof id === 'string' ? Number(id) : undefined;
-  const isValidPartyId = partyId !== undefined && !isNaN(partyId);
+  const isValidPartyId = router.isReady && partyId !== undefined && !isNaN(partyId);
 
   const { data, isLoading } = useGetPartyDetails(partyId, isValidPartyId);
   const { data: commentListData } = useGetPartyCommentList(partyId, isValidPartyId);
@@ -93,6 +93,7 @@ export const Detail = () => {
   );
 
   const handleParticipate = () => {
+    if (!partyId) return;
     notification.alert({
       type: 'confirm',
       title: '모임 참여',
@@ -107,6 +108,7 @@ export const Detail = () => {
   };
 
   const handleCancelParticipate = () => {
+    if (!partyId) return;
     notification.alert({
       type: 'error',
       title: '모임 신청 취소',
@@ -127,6 +129,7 @@ export const Detail = () => {
   };
 
   const handleParticipateCancel = () => {
+    if (!partyId) return;
     notification.alert({
       type: 'error',
       title: '모임 나가기',
@@ -148,6 +151,7 @@ export const Detail = () => {
   };
 
   const handleAddLike = () => {
+    if (!partyId) return;
     if (isLikeParty) {
       cancelLike(partyId, {
         onSuccess: () => {
@@ -214,10 +218,12 @@ export const Detail = () => {
   };
 
   const handleModify = () => {
+    if (!partyId) return;
     router.push(`/modify-party/${partyId}`);
   };
 
   const handleDelete = () => {
+    if (!partyId) return;
     notification.alert({
       type: 'confirm',
       title: '모임 삭제',
@@ -227,12 +233,12 @@ export const Detail = () => {
   };
 
   useEffect(() => {
-    if (!isLoading && !data) {
+    if (router.isReady && !isLoading && !data && isValidPartyId) {
       router.push('/404');
     }
-  }, [isLoading, data, router]);
+  }, [router.isReady, isLoading, data, isValidPartyId, router]);
 
-  if (isLoading || !data) {
+  if (!router.isReady || isLoading || !data || !partyId) {
     return <Loading />;
   }
 
