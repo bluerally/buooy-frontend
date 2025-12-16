@@ -109,10 +109,9 @@ const useGetPartyList = (params?: GetPartyListQuery) => {
     },
     {
       getNextPageParam: (lastPage, allPages) => {
-        const hasMore = lastPage?.data.length > 0;
-        const isLastPage = lastPage?.data.length < 8;
-
-        return hasMore && !isLastPage ? allPages.length + 1 : undefined;
+        // 응답 본문의 pagination에서 has_more 사용
+        const { pagination } = lastPage?.data ?? {};
+        return pagination?.has_more ? allPages.length + 1 : undefined;
       },
       onError: (error: AxiosError<any>) => {
         snackbar.warning({ content: `${error.code} 모임 리스트 조회 실패` });

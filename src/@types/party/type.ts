@@ -1,10 +1,15 @@
 import { components, operations } from '@/@types/backend';
+import { PaginatedResponse } from '@/@types/common';
 
 // 파티리스트
 export type GetPartyListQuery =
   operations['get_party_list_api_party_list_get']['parameters']['query'];
-export type GetPartyListResponse =
-  operations['get_party_list_api_party_list_get']['responses']['200']['content']['application/json'];
+
+// PartyListDetail 타입 (기존 backend.ts에서 정의)
+export type PartyListDetail = components['schemas']['PartyListDetail'];
+
+// 페이지네이션 응답 타입
+export type GetPartyListResponse = PaginatedResponse<PartyListDetail>;
 
 // 파티상세
 export type GetPartyDetailParams =

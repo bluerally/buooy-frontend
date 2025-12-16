@@ -1,4 +1,4 @@
-import { GetPartyListQuery, GetPartyListResponse } from '@/@types/party/type';
+import { GetPartyListQuery, PartyListDetail } from '@/@types/party/type';
 import { useSearchModal } from '@/contexts/SearchModalContext';
 import { useGetSports } from '@/hooks/api/common';
 import { useGetNotificationsCount } from '@/hooks/api/notification';
@@ -61,8 +61,8 @@ const Main = () => {
   };
 
   const partyList = useMemo(() => {
-    return data?.pages.reduce<GetPartyListResponse>((acc, page) => {
-      return acc.concat(page.data);
+    return data?.pages.reduce<PartyListDetail[]>((acc, page) => {
+      return acc.concat(page.data.items);
     }, []);
   }, [data]);
 

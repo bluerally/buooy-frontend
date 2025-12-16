@@ -1,4 +1,4 @@
-import { GetPartyListQuery, GetPartyListResponse } from '@/@types/party/type';
+import { GetPartyListQuery, PartyListDetail } from '@/@types/party/type';
 import { SPORTS } from '@/constants/common';
 import { useSearchModal } from '@/contexts/SearchModalContext';
 import { useGetPartyList } from '@/hooks/api/party';
@@ -41,8 +41,8 @@ export const Search = () => {
     useGetPartyList(params);
 
   const partyList =
-    data?.pages.reduce<GetPartyListResponse>((acc, page) => {
-      return acc.concat(page.data);
+    data?.pages.reduce<PartyListDetail[]>((acc, page) => {
+      return acc.concat(page.data.items);
     }, []) || [];
 
   const handleOpenSearchModal = () => {

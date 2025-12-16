@@ -24,3 +24,16 @@ export type GetSportsResponse =
   operations['get_sports_list_api_party_sports_get']['responses']['200']['content']['application/json'];
 
 export type Size = 'xs' | 'md' | 'lg';
+
+export interface PaginationMeta {
+  total_count: number;
+  total_pages: number;
+  current_page: number;
+  page_size: number;
+  has_more: boolean;
+}
+
+export interface PaginatedResponse<T> {
+  items: T[];
+  pagination: PaginationMeta;
+}
