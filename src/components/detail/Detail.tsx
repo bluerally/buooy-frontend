@@ -72,7 +72,8 @@ export const Detail = () => {
   const commentList = commentListData?.data;
   const partyDetail = data?.data;
   const currentUser = currentUserData?.data;
-  const likeList = likeData?.data?.items ?? [];
+  const likeListData = likeData?.data?.items;
+  const likeList = Array.isArray(likeListData) ? likeListData : [];
 
   const pendingParticipants = partyDetail?.pending_participants ?? [];
   const approvedParticipants = partyDetail?.approved_participants ?? [];

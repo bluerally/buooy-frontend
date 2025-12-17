@@ -10,7 +10,8 @@ export const Like = () => {
   const router = useRouter();
   const { data, isLoading } = useGetLikeList();
 
-  const likeList = data?.data?.items ?? [];
+  const likeListData = data?.data?.items;
+  const likeList = Array.isArray(likeListData) ? likeListData : [];
 
   if (isLoading) {
     return <Loading />;

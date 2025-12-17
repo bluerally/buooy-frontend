@@ -4,122 +4,289 @@
  */
 
 export interface paths {
-  "/api/user/auth/redirect-url/{platform}": {
-    get: operations["get_social_login_redirect_url_api_user_auth_redirect_url__platform__get"];
+  '/api/user/auth/redirect-url/{platform}': {
+    get: operations['get_social_login_redirect_url_api_user_auth_redirect_url__platform__get'];
   };
-  "/api/user/auth/{platform}": {
-    get: operations["social_auth_callback_api_user_auth__platform__get"];
+  '/api/user/auth/{platform}': {
+    get: operations['social_auth_callback_api_user_auth__platform__get'];
   };
-  "/api/user/auth/token": {
-    post: operations["login_access_token_api_user_auth_token_post"];
+  '/api/user/auth/token': {
+    post: operations['login_access_token_api_user_auth_token_post'];
   };
-  "/api/user/auth/token/refresh": {
-    post: operations["access_token_refresh_api_user_auth_token_refresh_post"];
+  '/api/user/auth/token/refresh': {
+    post: operations['access_token_refresh_api_user_auth_token_refresh_post'];
   };
-  "/api/user/auth/logout": {
-    post: operations["logout_api_user_auth_logout_post"];
+  '/api/user/auth/logout': {
+    post: operations['logout_api_user_auth_logout_post'];
   };
-  "/api/user/certificates": {
-    get: operations["certificate_level_list_api_user_certificates_get"];
+  '/api/user/certificates': {
+    get: operations['certificate_level_list_api_user_certificates_get'];
   };
-  "/api/user/certificates/{certificate_id}/levels": {
-    get: operations["get_certificate_levels_api_user_certificates__certificate_id__levels_get"];
+  '/api/user/certificates/{certificate_id}/levels': {
+    get: operations['get_certificate_levels_api_user_certificates__certificate_id__levels_get'];
   };
-  "/api/user/party/like": {
-    get: operations["get_liked_parties_api_user_party_like_get"];
+  '/api/user/party/like': {
+    get: operations['get_liked_parties_api_user_party_like_get'];
   };
-  "/api/user/me": {
-    get: operations["get_self_profile_api_user_me_get"];
-    post: operations["update_self_profile_api_user_me_post"];
+  '/api/user/me': {
+    get: operations['get_self_profile_api_user_me_get'];
+    post: operations['update_self_profile_api_user_me_post'];
   };
-  "/api/user/me/profile-image": {
-    post: operations["update_self_profile_image_api_user_me_profile_image_post"];
+  '/api/user/me/profile-image': {
+    post: operations['update_self_profile_image_api_user_me_profile_image_post'];
   };
-  "/api/user/profile/{user_id}": {
-    get: operations["get_user_profile_api_user_profile__user_id__get"];
+  '/api/user/profile/{user_id}': {
+    get: operations['get_user_profile_api_user_profile__user_id__get'];
   };
-  "/api/user/test/token": {
-    post: operations["get_test_access_token_api_user_test_token_post"];
+  '/api/user/test/token': {
+    post: operations['get_test_access_token_api_user_test_token_post'];
   };
-  "/api/user/party/stats": {
-    get: operations["get_user_party_statisics_api_user_party_stats_get"];
+  '/api/user/party/stats': {
+    get: operations['get_user_party_statisics_api_user_party_stats_get'];
   };
-  "/api/party/sports": {
-    get: operations["get_sports_list_api_party_sports_get"];
+  '/api/user/auth/mobile/token': {
+    /** 모바일 앱에서 소셜 로그인 후 받은 토큰을 검증하고 서비스 토큰 발급 */
+    post: operations['mobile_auth_token_api_user_auth_mobile_token_post'];
   };
-  "/api/party": {
-    post: operations["create_party_api_party_post"];
+  '/api/user/fcm-token': {
+    post: operations['update_fcm_token_api_user_fcm_token_post'];
   };
-  "/api/party/{party_id}": {
-    post: operations["update_party_api_party__party_id__post"];
+  '/api/user/push-setting': {
+    /** 푸시 알림 설정 조회 */
+    get: operations['get_push_setting_api_user_push_setting_get'];
+    /** 푸시 알림 설정 변경 */
+    post: operations['update_push_setting_api_user_push_setting_post'];
+  };
+  '/api/user/diving-types': {
+    /** 다이빙 종류 목록 조회 */
+    get: operations['get_diving_types_api_user_diving_types_get'];
+  };
+  '/api/user/certificate-organizations': {
+    /** 자격증 발급 기관 목록 조회 */
+    get: operations['get_certificate_organizations_api_user_certificate_organizations_get'];
+  };
+  '/api/user/certificates/list': {
+    /** 자격증 목록 조회 */
+    get: operations['get_certificates_list_api_user_certificates_list_get'];
+  };
+  '/api/user/me/certificates': {
+    /** 내 자격증 목록 조회 */
+    get: operations['get_my_certificates_api_user_me_certificates_get'];
+    /** 내 자격증 목록 업데이트 */
+    post: operations['update_my_certificates_api_user_me_certificates_post'];
+  };
+  '/api/user/me/certificates/{user_certificate_id}': {
+    /** 내 자격증 삭제 */
+    delete: operations['delete_my_certificate_api_user_me_certificates__user_certificate_id__delete'];
+  };
+  '/api/party/sports': {
+    get: operations['get_sports_list_api_party_sports_get'];
+  };
+  '/api/party': {
+    post: operations['create_party_api_party_post'];
+  };
+  '/api/party/{party_id}': {
+    post: operations['update_party_api_party__party_id__post'];
     /** 파티 삭제 api. */
-    delete: operations["delete_party_api_party__party_id__delete"];
+    delete: operations['delete_party_api_party__party_id__delete'];
   };
-  "/api/party/{party_id}/participate": {
-    post: operations["participate_in_party_api_party__party_id__participate_post"];
+  '/api/party/{party_id}/participate': {
+    post: operations['participate_in_party_api_party__party_id__participate_post'];
   };
-  "/api/party/participants/{party_id}/status-change": {
-    post: operations["participant_change_participation_status_api_party_participants__party_id__status_change_post"];
+  '/api/party/participants/{party_id}/status-change': {
+    post: operations['participant_change_participation_status_api_party_participants__party_id__status_change_post'];
   };
-  "/api/party/organizer/{party_id}/status-change/{participation_id}": {
-    post: operations["organizer_change_participation_status_api_party_organizer__party_id__status_change__participation_id__post"];
+  '/api/party/organizer/{party_id}/status-change/{participation_id}': {
+    post: operations['organizer_change_participation_status_api_party_organizer__party_id__status_change__participation_id__post'];
   };
-  "/api/party/details/{party_id}": {
-    get: operations["get_party_details_api_party_details__party_id__get"];
+  '/api/party/details/{party_id}': {
+    get: operations['get_party_details_api_party_details__party_id__get'];
   };
-  "/api/party/list": {
-    get: operations["get_party_list_api_party_list_get"];
+  '/api/party/list': {
+    get: operations['get_party_list_api_party_list_get'];
   };
-  "/api/party/{party_id}/comment": {
-    get: operations["get_party_comments_api_party__party_id__comment_get"];
-    post: operations["post_party_comment_api_party__party_id__comment_post"];
+  '/api/party/{party_id}/comment': {
+    get: operations['get_party_comments_api_party__party_id__comment_get'];
+    post: operations['post_party_comment_api_party__party_id__comment_post'];
   };
-  "/api/party/{party_id}/comment/{comment_id}": {
-    put: operations["change_party_comment_api_party__party_id__comment__comment_id__put"];
-    delete: operations["delete_party_comment_api_party__party_id__comment__comment_id__delete"];
+  '/api/party/{party_id}/comment/{comment_id}': {
+    put: operations['change_party_comment_api_party__party_id__comment__comment_id__put'];
+    delete: operations['delete_party_comment_api_party__party_id__comment__comment_id__delete'];
   };
-  "/api/party/like/{party_id}": {
-    post: operations["add_liked_party_api_party_like__party_id__post"];
-    delete: operations["cancel_liked_party_api_party_like__party_id__delete"];
+  '/api/party/like/{party_id}': {
+    post: operations['add_liked_party_api_party_like__party_id__post'];
+    delete: operations['cancel_liked_party_api_party_like__party_id__delete'];
   };
-  "/api/party/me/organized": {
-    get: operations["get_self_organized_party_api_party_me_organized_get"];
+  '/api/party/me/organized': {
+    get: operations['get_self_organized_party_api_party_me_organized_get'];
   };
-  "/api/party/me/participated": {
-    get: operations["get_participated_party_api_party_me_participated_get"];
+  '/api/party/me/participated': {
+    get: operations['get_participated_party_api_party_me_participated_get'];
   };
-  "/api/feedback": {
-    post: operations["post_feedback_api_feedback_post"];
+  '/api/party/{party_id}/report': {
+    /**
+     * 파티 신고 API.
+     * 로그인한 사용자만 신고할 수 있습니다.
+     */
+    post: operations['report_party_api_party__party_id__report_post'];
   };
-  "/api/notifications": {
-    get: operations["get_user_notifications_api_notifications_get"];
+  '/api/party/{party_id}/comment/{comment_id}/report': {
+    /**
+     * 댓글 신고 API.
+     * 로그인한 사용자만 신고할 수 있으며, 본인이 작성한 댓글은 신고할 수 없습니다.
+     */
+    post: operations['report_comment_api_party__party_id__comment__comment_id__report_post'];
   };
-  "/api/notifications/read": {
-    post: operations["read_user_notifications_api_notifications_read_post"];
+  '/api/feedback': {
+    post: operations['post_feedback_api_feedback_post'];
   };
-  "/api/notifications/count": {
-    get: operations["get_notification_count_api_notifications_count_get"];
+  '/api/notifications': {
+    get: operations['get_user_notifications_api_notifications_get'];
   };
-  "/admin/feedback": {
-    get: operations["list_feedback_admin_feedback_get"];
+  '/api/notifications/read': {
+    post: operations['read_user_notifications_api_notifications_read_post'];
   };
-  "/admin/feedback/{feedback_id}": {
-    get: operations["view_feedback_admin_feedback__feedback_id__get"];
+  '/api/notifications/count': {
+    get: operations['get_notification_count_api_notifications_count_get'];
   };
-  "/admin/feedback/{feedback_id}/delete": {
-    post: operations["delete_feedback_admin_feedback__feedback_id__delete_post"];
+  '/admin/dashboard': {
+    get: operations['dashboard_admin_dashboard_get'];
   };
-  "/admin/users": {
-    get: operations["list_users_admin_users_get"];
+  '/admin': {
+    get: operations['admin_index_admin_get'];
   };
-  "/admin/users/{user_id}": {
-    get: operations["view_user_admin_users__user_id__get"];
+  '/admin/feedback': {
+    get: operations['list_feedback_admin_feedback_get'];
   };
-  "/admin/users/{user_id}/toggle-active": {
-    post: operations["toggle_user_active_admin_users__user_id__toggle_active_post"];
+  '/admin/feedback/{feedback_id}': {
+    get: operations['view_feedback_admin_feedback__feedback_id__get'];
   };
-  "/api/health": {
-    get: operations["api_health_check_api_health_get"];
+  '/admin/feedback/{feedback_id}/delete': {
+    post: operations['delete_feedback_admin_feedback__feedback_id__delete_post'];
+  };
+  '/admin/users': {
+    get: operations['list_users_admin_users_get'];
+  };
+  '/admin/users/{user_id}': {
+    get: operations['view_user_admin_users__user_id__get'];
+  };
+  '/admin/users/{user_id}/toggle-active': {
+    post: operations['toggle_user_active_admin_users__user_id__toggle_active_post'];
+  };
+  '/admin/reports': {
+    get: operations['list_reports_admin_reports_get'];
+  };
+  '/admin/reports/{report_id}': {
+    get: operations['view_report_admin_reports__report_id__get'];
+  };
+  '/admin/reports/{report_id}/resolve': {
+    post: operations['resolve_report_admin_reports__report_id__resolve_post'];
+  };
+  '/admin/reports/{report_id}/delete': {
+    post: operations['delete_report_admin_reports__report_id__delete_post'];
+  };
+  '/admin/comment-reports': {
+    get: operations['list_comment_reports_admin_comment_reports_get'];
+  };
+  '/admin/comment-reports/{report_id}': {
+    get: operations['view_comment_report_admin_comment_reports__report_id__get'];
+  };
+  '/admin/comment-reports/{report_id}/resolve': {
+    post: operations['resolve_comment_report_admin_comment_reports__report_id__resolve_post'];
+  };
+  '/admin/comment-reports/{report_id}/delete': {
+    post: operations['delete_comment_report_admin_comment_reports__report_id__delete_post'];
+  };
+  '/admin/diving-types': {
+    /** 다이빙 종류 목록 */
+    get: operations['list_diving_types_admin_diving_types_get'];
+    /** 다이빙 종류 생성 */
+    post: operations['create_diving_type_admin_diving_types_post'];
+  };
+  '/admin/diving-types/{type_id}': {
+    /** 다이빙 종류 수정 */
+    put: operations['update_diving_type_admin_diving_types__type_id__put'];
+    /** 다이빙 종류 삭제 */
+    delete: operations['delete_diving_type_admin_diving_types__type_id__delete'];
+  };
+  '/admin/certificate-organizations': {
+    /** 자격증 기관 목록 */
+    get: operations['list_organizations_admin_certificate_organizations_get'];
+    /** 자격증 기관 생성 */
+    post: operations['create_organization_admin_certificate_organizations_post'];
+  };
+  '/admin/certificate-organizations/{org_id}': {
+    /** 자격증 기관 수정 */
+    put: operations['update_organization_admin_certificate_organizations__org_id__put'];
+    /** 자격증 기관 삭제 */
+    delete: operations['delete_organization_admin_certificate_organizations__org_id__delete'];
+  };
+  '/admin/certificate-organizations/{org_id}/toggle-active': {
+    /** 자격증 기관 활성화/비활성화 */
+    post: operations['toggle_organization_active_admin_certificate_organizations__org_id__toggle_active_post'];
+  };
+  '/admin/certificates': {
+    /** 자격증 목록 */
+    get: operations['list_certificates_admin_certificates_get'];
+    /** 자격증 생성 */
+    post: operations['create_certificate_admin_certificates_post'];
+  };
+  '/admin/certificates/{cert_id}': {
+    /** 자격증 수정 */
+    put: operations['update_certificate_admin_certificates__cert_id__put'];
+    /** 자격증 삭제 */
+    delete: operations['delete_certificate_admin_certificates__cert_id__delete'];
+  };
+  '/admin/certificates/{cert_id}/toggle-active': {
+    /** 자격증 활성화/비활성화 */
+    post: operations['toggle_certificate_active_admin_certificates__cert_id__toggle_active_post'];
+  };
+  '/api/community/post': {
+    /** 게시글 목록 (검색, 페이징) */
+    get: operations['get_posts_api_community_post_get'];
+    /** 게시글 생성 (제목/본문/태그명 + 최대4장 이미지) */
+    post: operations['create_post_api_community_post_post'];
+  };
+  '/api/community/post/{post_id}': {
+    /** 게시글 상세 + 조회수 증가 */
+    get: operations['get_post_detail_api_community_post__post_id__get'];
+  };
+  '/api/community/post/{post_id}/like': {
+    /** 게시글 좋아요 토글 */
+    post: operations['toggle_post_like_api_community_post__post_id__like_post'];
+  };
+  '/api/community/post/{post_id}/comment': {
+    /** 댓글 조회 */
+    get: operations['get_comments_in_post_api_community_post__post_id__comment_get'];
+    /** 댓글 작성 */
+    post: operations['create_comment_api_community_post__post_id__comment_post'];
+  };
+  '/api/community/comment/{comment_id}': {
+    /** 댓글 수정 */
+    put: operations['update_comment_api_community_comment__comment_id__put'];
+    /** 댓글 삭제(비활성화) */
+    delete: operations['delete_comment_api_community_comment__comment_id__delete'];
+  };
+  '/api/community/comment/{comment_id}/like': {
+    /** 댓글 좋아요 토글 */
+    post: operations['toggle_comment_like_api_community_comment__comment_id__like_post'];
+  };
+  '/api/community/comment/{comment_id}/reply': {
+    /** 대댓글 작성 */
+    post: operations['create_reply_api_community_comment__comment_id__reply_post'];
+  };
+  '/api/community/comment/reply/{reply_id}': {
+    /** 대댓글 수정 */
+    put: operations['update_reply_api_community_comment_reply__reply_id__put'];
+    /** 대댓글 삭제(비활성화) */
+    delete: operations['delete_reply_api_community_comment_reply__reply_id__delete'];
+  };
+  '/api/community/comment/reply/{reply_id}/like': {
+    /** 대댓글 좋아요 토글 */
+    post: operations['toggle_reply_like_api_community_comment_reply__reply_id__like_post'];
+  };
+  '/api/health': {
+    get: operations['api_health_check_api_health_get'];
   };
 }
 
@@ -131,22 +298,101 @@ export interface components {
     AccessTokenResponse: {
       access_token?: string;
       refresh_token?: string;
-      user_info: components["schemas"]["UserInfo"];
+      user_info: components['schemas']['UserInfo'];
       is_new_user: boolean;
+    };
+    Body_create_post_api_community_post_post: {
+      image?: string[];
+      title: string;
+      body: string;
+      tag_ids?: Partial<number[]> & Partial<unknown>;
     };
     Body_update_self_profile_image_api_user_me_profile_image_post: {
       profile_image?: Partial<string> & Partial<unknown>;
+    };
+    CertificateCreateRequest: {
+      organization_id: number;
+      level: number;
+      name: string;
+      description?: Partial<string> & Partial<unknown>;
+    };
+    CertificateDetailResponse: {
+      id: number;
+      organization_id?: Partial<number> & Partial<unknown>;
+      organization_name?: Partial<string> & Partial<unknown>;
+      diving_type_id?: Partial<number> & Partial<unknown>;
+      diving_type_name?: Partial<string> & Partial<unknown>;
+      level: number;
+      name: string;
+      description?: Partial<string> & Partial<unknown>;
+    };
+    CertificateOrganizationResponse: {
+      id: number;
+      name: string;
+      logo_url?: Partial<string> & Partial<unknown>;
+      website_url?: Partial<string> & Partial<unknown>;
+      diving_type_id?: Partial<number> & Partial<unknown>;
+      diving_type_name?: Partial<string> & Partial<unknown>;
+    };
+    CertificateResponse: {
+      id: number;
+      organization_id?: Partial<number> & Partial<unknown>;
+      organization_name?: Partial<string> & Partial<unknown>;
+      level: number;
+      name: string;
+      description?: Partial<string> & Partial<unknown>;
+      is_active: boolean;
+    };
+    CommentBaseDto: {
+      id: number;
+      created_at: string;
+      content: string;
+      writer: components['schemas']['UserSimpleProfile'];
+      likes: number;
+      is_active: boolean;
+    };
+    CommentDto: {
+      id: number;
+      created_at: string;
+      content: string;
+      writer: components['schemas']['UserSimpleProfile'];
+      likes: number;
+      is_active: boolean;
+      replies: Partial<components['schemas']['CommentBaseDto'][]> &
+        Partial<unknown>;
+    };
+    CommentReportRequest: {
+      reason: string;
+      detail?: Partial<string> & Partial<unknown>;
+    };
+    CommentReportResponse: {
+      report_id: number;
+      comment_id: number;
+      reason: string;
+    };
+    DivingTypeCreateRequest: {
+      name: string;
+      description?: Partial<string> & Partial<unknown>;
+    };
+    FcmTokenUpdateRequest: {
+      fcm_token: string;
     };
     FeedbackRequest: {
       content: string;
     };
     HTTPValidationError: {
-      detail?: components["schemas"]["ValidationError"][];
+      detail?: components['schemas']['ValidationError'][];
     };
     LoginResponse: {
       access_token?: string;
       refresh_token?: string;
-      user_info: components["schemas"]["UserInfo"];
+      user_info: components['schemas']['UserInfo'];
+    };
+    /** 모바일 앱에서 소셜 로그인 후 토큰을 처리하기 위한 요청 모델 */
+    MobileAuthRequest: {
+      token: string;
+      platform: string;
+      user_info: { [key: string]: Partial<string> & Partial<unknown> };
     };
     NotificationDto: {
       type: string;
@@ -159,7 +405,7 @@ export interface components {
       is_read: boolean;
     };
     NotificationListDto: {
-      notifications: components["schemas"]["NotificationDto"][];
+      notifications: components['schemas']['NotificationDto'][];
       total_pages: number;
     };
     NotificationReadRequest: {
@@ -168,9 +414,41 @@ export interface components {
     NotificationUnreadCountDto: {
       count: number;
     };
+    OrganizationCreateRequest: {
+      name: string;
+      logo_url?: Partial<string> & Partial<unknown>;
+      website_url?: Partial<string> & Partial<unknown>;
+      diving_type_id?: Partial<number> & Partial<unknown>;
+    };
+    OrganizationResponse: {
+      id: number;
+      name: string;
+      logo_url?: Partial<string> & Partial<unknown>;
+      website_url?: Partial<string> & Partial<unknown>;
+      diving_type_id?: Partial<number> & Partial<unknown>;
+      diving_type_name?: Partial<string> & Partial<unknown>;
+      is_active: boolean;
+    };
+    PaginatedResponse_PartyListDetail_: {
+      items: components['schemas']['PartyListDetail'][];
+      pagination: components['schemas']['PaginationMeta'];
+    };
+    /** 페이지네이션 메타데이터 */
+    PaginationMeta: {
+      /** 전체 아이템 수 */
+      total_count: number;
+      /** 전체 페이지 수 */
+      total_pages: number;
+      /** 현재 페이지 번호 */
+      current_page: number;
+      /** 페이지당 아이템 수 */
+      page_size: number;
+      /** 다음 페이지 존재 여부 */
+      has_more: boolean;
+    };
     ParticipantProfile: {
       user_id: number;
-      profile_picture: string;
+      profile_picture: Partial<string> & Partial<unknown>;
       name: string;
       participation_id?: Partial<number> & Partial<unknown>;
       is_organizer?: boolean;
@@ -178,7 +456,7 @@ export interface components {
     ParticipationStatus: 0 | 1 | 2 | 3;
     PartyCommentDetail: {
       id: number;
-      commenter_profile: components["schemas"]["UserSimpleProfile"];
+      commenter_profile: components['schemas']['UserSimpleProfile'];
       posted_date: string;
       content: string;
       is_writer?: Partial<boolean> & Partial<unknown>;
@@ -197,18 +475,18 @@ export interface components {
       gather_time: string;
       price: number;
       body: string;
-      organizer_profile: components["schemas"]["UserSimpleProfile"];
+      organizer_profile: components['schemas']['UserSimpleProfile'];
       posted_date: string;
       is_active: boolean;
       max_participants: number;
       current_participants: number;
       is_user_organizer?: boolean;
       pending_participants?: Partial<
-        components["schemas"]["ParticipantProfile"][]
+        components['schemas']['ParticipantProfile'][]
       > &
         Partial<unknown>;
       approved_participants?: Partial<
-        components["schemas"]["ParticipantProfile"][]
+        components['schemas']['ParticipantProfile'][]
       > &
         Partial<unknown>;
       notice?: Partial<string> & Partial<unknown>;
@@ -241,7 +519,7 @@ export interface components {
       gather_time: string;
       price: number;
       body: string;
-      organizer_profile: components["schemas"]["UserSimpleProfile"];
+      organizer_profile: components['schemas']['UserSimpleProfile'];
       posted_date: string;
       is_active: boolean;
       participants_info: string;
@@ -254,7 +532,16 @@ export interface components {
     };
     PartyParticipationStatusChangeResponse: {
       participation_id: number;
-      status: components["schemas"]["ParticipationStatus"];
+      status: components['schemas']['ParticipationStatus'];
+    };
+    PartyReportRequest: {
+      reason: string;
+      detail?: Partial<string> & Partial<unknown>;
+    };
+    PartyReportResponse: {
+      report_id: number;
+      party_id: number;
+      reason: string;
     };
     PartyUpdateInfo: {
       id: number;
@@ -264,7 +551,7 @@ export interface components {
       gather_time: string;
       price: number;
       body: string;
-      organizer_profile: components["schemas"]["UserSimpleProfile"];
+      organizer_profile: components['schemas']['UserSimpleProfile'];
       posted_date: string;
       is_active: boolean;
       updated_at: string;
@@ -284,6 +571,48 @@ export interface components {
       participant_cost?: Partial<number> & Partial<unknown>;
       sport_id?: Partial<number> & Partial<unknown>;
       notice?: Partial<string> & Partial<unknown>;
+      is_active?: Partial<boolean> & Partial<unknown>;
+    };
+    PostCommentRequest: {
+      content: string;
+    };
+    PostCreateResponse: {
+      post_id: number;
+      message: string;
+    };
+    PostDetailItemDto: {
+      id: number;
+      title: string;
+      body: string;
+      writer: components['schemas']['UserSimpleProfile'];
+      created_at: string;
+      views: number;
+      likes: number;
+      tags: components['schemas']['TagInfo'][];
+      images: string[];
+    };
+    PostListItemDto: {
+      id: number;
+      title: string;
+      body: string;
+      writer: components['schemas']['UserSimpleProfile'];
+      created_at: string;
+      views: number;
+      likes: number;
+      tags: components['schemas']['TagInfo'][];
+      images: string[];
+    };
+    PostListResponse: {
+      total_count: number;
+      page: number;
+      page_size: number;
+      results: components['schemas']['PostListItemDto'][];
+    };
+    PushSettingResponse: {
+      push_enabled: boolean;
+    };
+    PushSettingUpdateRequest: {
+      push_enabled: boolean;
     };
     RedirectUrlInfoResponse: {
       redirect_url: string;
@@ -294,11 +623,19 @@ export interface components {
       email: string;
       introduction: Partial<string> & Partial<unknown>;
       profile_image: Partial<string> & Partial<unknown>;
-      interested_sports: Partial<components["schemas"]["SportInfo"][]> &
+      interested_sports: Partial<components['schemas']['SportInfo'][]> &
+        Partial<unknown>;
+      certificates?: Partial<
+        components['schemas']['UserCertificateResponse'][]
+      > &
         Partial<unknown>;
     };
-    SocialAuthPlatform: "google" | "kakao" | "naver";
+    SocialAuthPlatform: 'google' | 'kakao' | 'naver' | 'apple';
     SportInfo: {
+      id: number;
+      name: string;
+    };
+    TagInfo: {
       id: number;
       name: string;
     };
@@ -306,6 +643,18 @@ export interface components {
       access_token?: string;
       refresh_token?: string;
       user_id: number;
+    };
+    UserCertificateResponse: {
+      id: number;
+      certificate_id?: Partial<number> & Partial<unknown>;
+      organization_name?: Partial<string> & Partial<unknown>;
+      diving_type_name?: Partial<string> & Partial<unknown>;
+      level?: Partial<number> & Partial<unknown>;
+      certificate_name?: Partial<string> & Partial<unknown>;
+    };
+    /** 사용자 자격증 목록 업데이트 요청 */
+    UserCertificatesUpdateRequest: {
+      certificate_ids: number[];
     };
     UserInfo: {
       sns_id?: Partial<string> & Partial<unknown>;
@@ -326,7 +675,7 @@ export interface components {
     };
     UserSimpleProfile: {
       user_id: number;
-      profile_picture: string;
+      profile_picture: Partial<string> & Partial<unknown>;
       name: string;
     };
     ValidationError: {
@@ -334,16 +683,21 @@ export interface components {
       msg: string;
       type: string;
     };
+    /** 레거시 자격증 레벨 테이블 (기존 데이터 호환용) */
     certificate_levels: {
       id: number;
       level: string;
     };
+    /** 자격증 (기관별 레벨별 자격증) */
     certificate_name: {
       id: number;
+      level?: Partial<number> & Partial<unknown>;
       name: string;
+      description?: (Partial<string> & Partial<unknown>) | null;
+      is_active?: Partial<boolean> & Partial<unknown>;
     };
     parties__dto__request__RefreshTokenRequest: {
-      new_status: components["schemas"]["ParticipationStatus"];
+      new_status: components['schemas']['ParticipationStatus'];
     };
     sports_name: {
       id: number;
@@ -352,6 +706,11 @@ export interface components {
     users__dto__request__RefreshTokenRequest: {
       refresh_token: string;
     };
+    users__dto__response__DivingTypeResponse: {
+      id: number;
+      name: string;
+      description?: Partial<string> & Partial<unknown>;
+    };
   };
 }
 
@@ -359,20 +718,20 @@ export interface operations {
   get_social_login_redirect_url_api_user_auth_redirect_url__platform__get: {
     parameters: {
       path: {
-        platform: components["schemas"]["SocialAuthPlatform"];
+        platform: components['schemas']['SocialAuthPlatform'];
       };
     };
     responses: {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["RedirectUrlInfoResponse"];
+          'application/json': components['schemas']['RedirectUrlInfoResponse'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -380,7 +739,7 @@ export interface operations {
   social_auth_callback_api_user_auth__platform__get: {
     parameters: {
       path: {
-        platform: components["schemas"]["SocialAuthPlatform"];
+        platform: components['schemas']['SocialAuthPlatform'];
       };
       query: {
         code: string;
@@ -392,13 +751,13 @@ export interface operations {
       /** Successful Response */
       307: {
         content: {
-          "application/json": unknown;
+          'application/json': unknown;
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -408,19 +767,19 @@ export interface operations {
       /** Successful Response */
       201: {
         content: {
-          "application/json": components["schemas"]["AccessTokenResponse"];
+          'application/json': components['schemas']['AccessTokenResponse'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["AccessTokenRequest"];
+        'application/json': components['schemas']['AccessTokenRequest'];
       };
     };
   };
@@ -429,19 +788,19 @@ export interface operations {
       /** Successful Response */
       201: {
         content: {
-          "application/json": components["schemas"]["LoginResponse"];
+          'application/json': components['schemas']['LoginResponse'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["users__dto__request__RefreshTokenRequest"];
+        'application/json': components['schemas']['users__dto__request__RefreshTokenRequest'];
       };
     };
   };
@@ -450,7 +809,7 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": unknown;
+          'application/json': unknown;
         };
       };
     };
@@ -460,7 +819,7 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["certificate_name"][];
+          'application/json': components['schemas']['certificate_name'][];
         };
       };
     };
@@ -475,13 +834,13 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["certificate_levels"][];
+          'application/json': components['schemas']['certificate_levels'][];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -496,13 +855,13 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["PartyListDetail"][];
+          'application/json': components['schemas']['PaginatedResponse_PartyListDetail_'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -512,7 +871,7 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["SelfProfileResponse"];
+          'application/json': components['schemas']['SelfProfileResponse'];
         };
       };
     };
@@ -522,19 +881,19 @@ export interface operations {
       /** Successful Response */
       201: {
         content: {
-          "application/json": components["schemas"]["SelfProfileResponse"];
+          'application/json': components['schemas']['SelfProfileResponse'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["UserProfileUpdateRequest"];
+        'application/json': components['schemas']['UserProfileUpdateRequest'];
       };
     };
   };
@@ -543,19 +902,19 @@ export interface operations {
       /** Successful Response */
       201: {
         content: {
-          "application/json": components["schemas"]["SelfProfileResponse"];
+          'application/json': components['schemas']['SelfProfileResponse'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
     requestBody: {
       content: {
-        "multipart/form-data": components["schemas"]["Body_update_self_profile_image_api_user_me_profile_image_post"];
+        'multipart/form-data': components['schemas']['Body_update_self_profile_image_api_user_me_profile_image_post'];
       };
     };
   };
@@ -569,13 +928,13 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["SelfProfileResponse"];
+          'application/json': components['schemas']['SelfProfileResponse'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -590,13 +949,13 @@ export interface operations {
       /** Successful Response */
       201: {
         content: {
-          "application/json": components["schemas"]["TestTokenInfo"];
+          'application/json': components['schemas']['TestTokenInfo'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -606,7 +965,193 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["UserPartyStatisticsResponse"];
+          'application/json': components['schemas']['UserPartyStatisticsResponse'];
+        };
+      };
+    };
+  };
+  /** 모바일 앱에서 소셜 로그인 후 받은 토큰을 검증하고 서비스 토큰 발급 */
+  mobile_auth_token_api_user_auth_mobile_token_post: {
+    responses: {
+      /** Successful Response */
+      201: {
+        content: {
+          'application/json': components['schemas']['AccessTokenResponse'];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['MobileAuthRequest'];
+      };
+    };
+  };
+  update_fcm_token_api_user_fcm_token_post: {
+    responses: {
+      /** Successful Response */
+      201: {
+        content: {
+          'application/json': string;
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['FcmTokenUpdateRequest'];
+      };
+    };
+  };
+  /** 푸시 알림 설정 조회 */
+  get_push_setting_api_user_push_setting_get: {
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['PushSettingResponse'];
+        };
+      };
+    };
+  };
+  /** 푸시 알림 설정 변경 */
+  update_push_setting_api_user_push_setting_post: {
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['PushSettingResponse'];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['PushSettingUpdateRequest'];
+      };
+    };
+  };
+  /** 다이빙 종류 목록 조회 */
+  get_diving_types_api_user_diving_types_get: {
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['users__dto__response__DivingTypeResponse'][];
+        };
+      };
+    };
+  };
+  /** 자격증 발급 기관 목록 조회 */
+  get_certificate_organizations_api_user_certificate_organizations_get: {
+    parameters: {
+      query: {
+        diving_type_id?: Partial<number> & Partial<unknown>;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['CertificateOrganizationResponse'][];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  /** 자격증 목록 조회 */
+  get_certificates_list_api_user_certificates_list_get: {
+    parameters: {
+      query: {
+        organization_id?: Partial<number> & Partial<unknown>;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['CertificateDetailResponse'][];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  /** 내 자격증 목록 조회 */
+  get_my_certificates_api_user_me_certificates_get: {
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['UserCertificateResponse'][];
+        };
+      };
+    };
+  };
+  /** 내 자격증 목록 업데이트 */
+  update_my_certificates_api_user_me_certificates_post: {
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['UserCertificateResponse'][];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['UserCertificatesUpdateRequest'];
+      };
+    };
+  };
+  /** 내 자격증 삭제 */
+  delete_my_certificate_api_user_me_certificates__user_certificate_id__delete: {
+    parameters: {
+      path: {
+        user_certificate_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': { [key: string]: boolean };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -616,7 +1161,7 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["sports_name"][];
+          'application/json': components['schemas']['sports_name'][];
         };
       };
     };
@@ -626,19 +1171,19 @@ export interface operations {
       /** Successful Response */
       201: {
         content: {
-          "application/json": components["schemas"]["PartyCreateResponse"];
+          'application/json': components['schemas']['PartyCreateResponse'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PartyDetailRequest"];
+        'application/json': components['schemas']['PartyDetailRequest'];
       };
     };
   };
@@ -652,19 +1197,19 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["PartyUpdateInfo"];
+          'application/json': components['schemas']['PartyUpdateInfo'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PartyUpdateRequest"];
+        'application/json': components['schemas']['PartyUpdateRequest'];
       };
     };
   };
@@ -685,7 +1230,7 @@ export interface operations {
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -700,13 +1245,13 @@ export interface operations {
       /** Successful Response */
       201: {
         content: {
-          "application/json": unknown;
+          'application/json': unknown;
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -721,19 +1266,19 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["PartyParticipationStatusChangeResponse"];
+          'application/json': components['schemas']['PartyParticipationStatusChangeResponse'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["parties__dto__request__RefreshTokenRequest"];
+        'application/json': components['schemas']['parties__dto__request__RefreshTokenRequest'];
       };
     };
   };
@@ -748,19 +1293,19 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["PartyParticipationStatusChangeResponse"];
+          'application/json': components['schemas']['PartyParticipationStatusChangeResponse'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["parties__dto__request__RefreshTokenRequest"];
+        'application/json': components['schemas']['parties__dto__request__RefreshTokenRequest'];
       };
     };
   };
@@ -774,13 +1319,13 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["PartyDetail"];
+          'application/json': components['schemas']['PartyDetail'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -794,19 +1339,23 @@ export interface operations {
         gather_date_max?: Partial<string> & Partial<unknown>;
         search_query?: Partial<string> & Partial<unknown>;
         page?: number;
+        /** 정렬 기준: created_at(등록 최신순) / gather_at(모임 시각순) */
+        sort_by?: Partial<string> & Partial<unknown>;
+        /** 마감된 모임 포함 여부 */
+        include_closed?: Partial<boolean> & Partial<unknown>;
       };
     };
     responses: {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["PartyListDetail"][];
+          'application/json': components['schemas']['PaginatedResponse_PartyListDetail_'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -821,13 +1370,13 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["PartyCommentDetail"][];
+          'application/json': components['schemas']['PartyCommentDetail'][];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -842,19 +1391,19 @@ export interface operations {
       /** Successful Response */
       201: {
         content: {
-          "application/json": components["schemas"]["PartyCommentDetail"];
+          'application/json': components['schemas']['PartyCommentDetail'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PartyCommentPostRequest"];
+        'application/json': components['schemas']['PartyCommentPostRequest'];
       };
     };
   };
@@ -869,19 +1418,19 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["PartyCommentDetail"];
+          'application/json': components['schemas']['PartyCommentDetail'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PartyCommentPostRequest"];
+        'application/json': components['schemas']['PartyCommentPostRequest'];
       };
     };
   };
@@ -896,13 +1445,13 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": unknown;
+          'application/json': unknown;
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -917,13 +1466,13 @@ export interface operations {
       /** Successful Response */
       201: {
         content: {
-          "application/json": unknown;
+          'application/json': unknown;
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -938,13 +1487,13 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": unknown;
+          'application/json': unknown;
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -959,13 +1508,13 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["PartyListDetail"][];
+          'application/json': components['schemas']['PaginatedResponse_PartyListDetail_'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -980,14 +1529,75 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["PartyListDetail"][];
+          'application/json': components['schemas']['PaginatedResponse_PartyListDetail_'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
+      };
+    };
+  };
+  /**
+   * 파티 신고 API.
+   * 로그인한 사용자만 신고할 수 있습니다.
+   */
+  report_party_api_party__party_id__report_post: {
+    parameters: {
+      path: {
+        party_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      201: {
+        content: {
+          'application/json': components['schemas']['PartyReportResponse'];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['PartyReportRequest'];
+      };
+    };
+  };
+  /**
+   * 댓글 신고 API.
+   * 로그인한 사용자만 신고할 수 있으며, 본인이 작성한 댓글은 신고할 수 없습니다.
+   */
+  report_comment_api_party__party_id__comment__comment_id__report_post: {
+    parameters: {
+      path: {
+        party_id: number;
+        comment_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      201: {
+        content: {
+          'application/json': components['schemas']['CommentReportResponse'];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['CommentReportRequest'];
       };
     };
   };
@@ -996,19 +1606,19 @@ export interface operations {
       /** Successful Response */
       201: {
         content: {
-          "application/json": unknown;
+          'application/json': unknown;
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["FeedbackRequest"];
+        'application/json': components['schemas']['FeedbackRequest'];
       };
     };
   };
@@ -1022,13 +1632,13 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["NotificationListDto"];
+          'application/json': components['schemas']['NotificationListDto'];
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -1038,19 +1648,19 @@ export interface operations {
       /** Successful Response */
       201: {
         content: {
-          "application/json": unknown;
+          'application/json': unknown;
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["NotificationReadRequest"];
+        'application/json': components['schemas']['NotificationReadRequest'];
       };
     };
   };
@@ -1059,7 +1669,27 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["NotificationUnreadCountDto"];
+          'application/json': components['schemas']['NotificationUnreadCountDto'];
+        };
+      };
+    };
+  };
+  dashboard_admin_dashboard_get: {
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': unknown;
+        };
+      };
+    };
+  };
+  admin_index_admin_get: {
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': unknown;
         };
       };
     };
@@ -1076,13 +1706,13 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": unknown;
+          'application/json': unknown;
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -1097,13 +1727,13 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": unknown;
+          'application/json': unknown;
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -1118,13 +1748,13 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": { [key: string]: boolean };
+          'application/json': { [key: string]: boolean };
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -1141,13 +1771,13 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": unknown;
+          'application/json': unknown;
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -1162,13 +1792,13 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": unknown;
+          'application/json': unknown;
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -1183,13 +1813,807 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": { [key: string]: unknown };
+          'application/json': { [key: string]: unknown };
         };
       };
       /** Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  list_reports_admin_reports_get: {
+    parameters: {
+      query: {
+        page?: number;
+        search?: Partial<string> & Partial<unknown>;
+        is_resolved?: Partial<boolean> & Partial<unknown>;
+        page_size?: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': unknown;
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  view_report_admin_reports__report_id__get: {
+    parameters: {
+      path: {
+        report_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': unknown;
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  resolve_report_admin_reports__report_id__resolve_post: {
+    parameters: {
+      path: {
+        report_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': { [key: string]: unknown };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  delete_report_admin_reports__report_id__delete_post: {
+    parameters: {
+      path: {
+        report_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': { [key: string]: boolean };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  list_comment_reports_admin_comment_reports_get: {
+    parameters: {
+      query: {
+        page?: number;
+        search?: Partial<string> & Partial<unknown>;
+        is_resolved?: Partial<boolean> & Partial<unknown>;
+        page_size?: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': unknown;
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  view_comment_report_admin_comment_reports__report_id__get: {
+    parameters: {
+      path: {
+        report_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': unknown;
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  resolve_comment_report_admin_comment_reports__report_id__resolve_post: {
+    parameters: {
+      path: {
+        report_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': { [key: string]: unknown };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  delete_comment_report_admin_comment_reports__report_id__delete_post: {
+    parameters: {
+      path: {
+        report_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': { [key: string]: boolean };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  /** 다이빙 종류 목록 */
+  list_diving_types_admin_diving_types_get: {
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['users__dto__response__DivingTypeResponse'][];
+        };
+      };
+    };
+  };
+  /** 다이빙 종류 생성 */
+  create_diving_type_admin_diving_types_post: {
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['users__dto__response__DivingTypeResponse'];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['DivingTypeCreateRequest'];
+      };
+    };
+  };
+  /** 다이빙 종류 수정 */
+  update_diving_type_admin_diving_types__type_id__put: {
+    parameters: {
+      path: {
+        type_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['users__dto__response__DivingTypeResponse'];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['DivingTypeCreateRequest'];
+      };
+    };
+  };
+  /** 다이빙 종류 삭제 */
+  delete_diving_type_admin_diving_types__type_id__delete: {
+    parameters: {
+      path: {
+        type_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': { [key: string]: boolean };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  /** 자격증 기관 목록 */
+  list_organizations_admin_certificate_organizations_get: {
+    parameters: {
+      query: {
+        diving_type_id?: Partial<number> & Partial<unknown>;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['OrganizationResponse'][];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  /** 자격증 기관 생성 */
+  create_organization_admin_certificate_organizations_post: {
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['OrganizationResponse'];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['OrganizationCreateRequest'];
+      };
+    };
+  };
+  /** 자격증 기관 수정 */
+  update_organization_admin_certificate_organizations__org_id__put: {
+    parameters: {
+      path: {
+        org_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['OrganizationResponse'];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['OrganizationCreateRequest'];
+      };
+    };
+  };
+  /** 자격증 기관 삭제 */
+  delete_organization_admin_certificate_organizations__org_id__delete: {
+    parameters: {
+      path: {
+        org_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': { [key: string]: boolean };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  /** 자격증 기관 활성화/비활성화 */
+  toggle_organization_active_admin_certificate_organizations__org_id__toggle_active_post: {
+    parameters: {
+      path: {
+        org_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': { [key: string]: unknown };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  /** 자격증 목록 */
+  list_certificates_admin_certificates_get: {
+    parameters: {
+      query: {
+        organization_id?: Partial<number> & Partial<unknown>;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['CertificateResponse'][];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  /** 자격증 생성 */
+  create_certificate_admin_certificates_post: {
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['CertificateResponse'];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['CertificateCreateRequest'];
+      };
+    };
+  };
+  /** 자격증 수정 */
+  update_certificate_admin_certificates__cert_id__put: {
+    parameters: {
+      path: {
+        cert_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['CertificateResponse'];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['CertificateCreateRequest'];
+      };
+    };
+  };
+  /** 자격증 삭제 */
+  delete_certificate_admin_certificates__cert_id__delete: {
+    parameters: {
+      path: {
+        cert_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': { [key: string]: boolean };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  /** 자격증 활성화/비활성화 */
+  toggle_certificate_active_admin_certificates__cert_id__toggle_active_post: {
+    parameters: {
+      path: {
+        cert_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': { [key: string]: unknown };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  /** 게시글 목록 (검색, 페이징) */
+  get_posts_api_community_post_get: {
+    parameters: {
+      query: {
+        page?: number;
+        page_size?: number;
+        search?: Partial<string> & Partial<unknown>;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['PostListResponse'];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  /** 게시글 생성 (제목/본문/태그명 + 최대4장 이미지) */
+  create_post_api_community_post_post: {
+    responses: {
+      /** Successful Response */
+      201: {
+        content: {
+          'application/json': components['schemas']['PostCreateResponse'];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+    requestBody: {
+      content: {
+        'multipart/form-data': components['schemas']['Body_create_post_api_community_post_post'];
+      };
+    };
+  };
+  /** 게시글 상세 + 조회수 증가 */
+  get_post_detail_api_community_post__post_id__get: {
+    parameters: {
+      path: {
+        post_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['PostDetailItemDto'];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  /** 게시글 좋아요 토글 */
+  toggle_post_like_api_community_post__post_id__like_post: {
+    parameters: {
+      path: {
+        post_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': { [key: string]: string };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  /** 댓글 조회 */
+  get_comments_in_post_api_community_post__post_id__comment_get: {
+    parameters: {
+      path: {
+        post_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': components['schemas']['CommentDto'][];
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  /** 댓글 작성 */
+  create_comment_api_community_post__post_id__comment_post: {
+    parameters: {
+      path: {
+        post_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      201: {
+        content: {
+          'application/json': { [key: string]: string };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['PostCommentRequest'];
+      };
+    };
+  };
+  /** 댓글 수정 */
+  update_comment_api_community_comment__comment_id__put: {
+    parameters: {
+      path: {
+        comment_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': { [key: string]: string };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['PostCommentRequest'];
+      };
+    };
+  };
+  /** 댓글 삭제(비활성화) */
+  delete_comment_api_community_comment__comment_id__delete: {
+    parameters: {
+      path: {
+        comment_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': { [key: string]: string };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  /** 댓글 좋아요 토글 */
+  toggle_comment_like_api_community_comment__comment_id__like_post: {
+    parameters: {
+      path: {
+        comment_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': { [key: string]: string };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  /** 대댓글 작성 */
+  create_reply_api_community_comment__comment_id__reply_post: {
+    parameters: {
+      path: {
+        comment_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      201: {
+        content: {
+          'application/json': { [key: string]: string };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['PostCommentRequest'];
+      };
+    };
+  };
+  /** 대댓글 수정 */
+  update_reply_api_community_comment_reply__reply_id__put: {
+    parameters: {
+      path: {
+        reply_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': { [key: string]: string };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['PostCommentRequest'];
+      };
+    };
+  };
+  /** 대댓글 삭제(비활성화) */
+  delete_reply_api_community_comment_reply__reply_id__delete: {
+    parameters: {
+      path: {
+        reply_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': { [key: string]: string };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
+        };
+      };
+    };
+  };
+  /** 대댓글 좋아요 토글 */
+  toggle_reply_like_api_community_comment_reply__reply_id__like_post: {
+    parameters: {
+      path: {
+        reply_id: number;
+      };
+    };
+    responses: {
+      /** Successful Response */
+      200: {
+        content: {
+          'application/json': { [key: string]: string };
+        };
+      };
+      /** Validation Error */
+      422: {
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -1199,7 +2623,7 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": string;
+          'application/json': string;
         };
       };
     };

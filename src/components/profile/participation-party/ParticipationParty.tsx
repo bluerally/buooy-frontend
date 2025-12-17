@@ -23,8 +23,8 @@ export const ParticipationParty = () => {
         center={<>신청한 모임</>}
       />
       <div className="flex flex-col gap-2 mt-3 mb-20">
-        {partyMeParticipatedData?.data.length ? (
-          partyMeParticipatedData?.data.map((party) => {
+        {partyMeParticipatedData?.data?.items?.length ? (
+          partyMeParticipatedData.data.items.map((party) => {
             return <List key={party.id} data={party} />;
           })
         ) : (

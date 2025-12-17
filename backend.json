@@ -1,6 +1,9 @@
 {
   "openapi": "3.0.2",
-  "info": { "title": "FastAPI", "version": "0.1.0" },
+  "info": {
+    "title": "FastAPI",
+    "version": "0.1.0"
+  },
   "paths": {
     "/api/user/auth/redirect-url/{platform}": {
       "get": {
@@ -11,7 +14,9 @@
             "name": "platform",
             "in": "path",
             "required": true,
-            "schema": { "$ref": "#/components/schemas/SocialAuthPlatform" }
+            "schema": {
+              "$ref": "#/components/schemas/SocialAuthPlatform"
+            }
           }
         ],
         "responses": {
@@ -29,7 +34,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -45,20 +52,32 @@
             "name": "platform",
             "in": "path",
             "required": true,
-            "schema": { "$ref": "#/components/schemas/SocialAuthPlatform" }
+            "schema": {
+              "$ref": "#/components/schemas/SocialAuthPlatform"
+            }
           },
           {
             "name": "code",
             "in": "query",
             "required": true,
-            "schema": { "type": "string", "title": "Code" }
+            "schema": {
+              "type": "string",
+              "title": "Code"
+            }
           },
           {
             "name": "error",
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Error"
             }
           },
@@ -67,7 +86,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Error Description"
             }
           }
@@ -75,13 +101,19 @@
         "responses": {
           "307": {
             "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
           },
           "422": {
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -95,7 +127,9 @@
         "requestBody": {
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/AccessTokenRequest" }
+              "schema": {
+                "$ref": "#/components/schemas/AccessTokenRequest"
+              }
             }
           },
           "required": true
@@ -105,7 +139,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/AccessTokenResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/AccessTokenResponse"
+                }
               }
             }
           },
@@ -113,7 +149,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -139,7 +177,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/LoginResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
               }
             }
           },
@@ -147,7 +187,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -161,7 +203,11 @@
         "responses": {
           "200": {
             "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
           }
         }
       }
@@ -176,7 +222,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "items": { "$ref": "#/components/schemas/certificate_name" },
+                  "items": {
+                    "$ref": "#/components/schemas/certificate_name"
+                  },
                   "type": "array",
                   "title": "Response Certificate Level List Api User Certificates Get"
                 }
@@ -195,7 +243,10 @@
             "name": "certificate_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Certificate Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Certificate Id"
+            }
           }
         ],
         "responses": {
@@ -217,7 +268,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -233,7 +286,11 @@
             "name": "page",
             "in": "query",
             "required": false,
-            "schema": { "type": "integer", "default": 1, "title": "Page" }
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "title": "Page"
+            }
           }
         ],
         "responses": {
@@ -242,9 +299,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": { "$ref": "#/components/schemas/PartyListDetail" },
-                  "title": "Response Get Liked Parties Api User Party Like Get"
+                  "$ref": "#/components/schemas/PaginatedResponse_PartyListDetail_"
                 }
               }
             }
@@ -253,7 +308,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -269,7 +326,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/SelfProfileResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/SelfProfileResponse"
+                }
               }
             }
           }
@@ -293,7 +352,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/SelfProfileResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/SelfProfileResponse"
+                }
               }
             }
           },
@@ -301,7 +362,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -326,7 +389,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/SelfProfileResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/SelfProfileResponse"
+                }
               }
             }
           },
@@ -334,7 +399,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -350,7 +417,10 @@
             "name": "user_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "User Id" }
+            "schema": {
+              "type": "integer",
+              "title": "User Id"
+            }
           }
         ],
         "responses": {
@@ -358,7 +428,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/SelfProfileResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/SelfProfileResponse"
+                }
               }
             }
           },
@@ -366,7 +438,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -382,7 +456,10 @@
             "name": "user_id",
             "in": "query",
             "required": true,
-            "schema": { "type": "integer", "title": "User Id" }
+            "schema": {
+              "type": "integer",
+              "title": "User Id"
+            }
           }
         ],
         "responses": {
@@ -390,7 +467,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/TestTokenInfo" }
+                "schema": {
+                  "$ref": "#/components/schemas/TestTokenInfo"
+                }
               }
             }
           },
@@ -398,7 +477,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -423,6 +504,373 @@
         }
       }
     },
+    "/api/user/auth/mobile/token": {
+      "post": {
+        "summary": "Mobile Auth Token",
+        "description": "\ubaa8\ubc14\uc77c \uc571\uc5d0\uc11c \uc18c\uc15c \ub85c\uadf8\uc778 \ud6c4 \ubc1b\uc740 \ud1a0\ud070\uc744 \uac80\uc99d\ud558\uace0 \uc11c\ube44\uc2a4 \ud1a0\ud070 \ubc1c\uae09",
+        "operationId": "mobile_auth_token_api_user_auth_mobile_token_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MobileAuthRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessTokenResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/user/fcm-token": {
+      "post": {
+        "summary": "Update Fcm Token",
+        "operationId": "update_fcm_token_api_user_fcm_token_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FcmTokenUpdateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "title": "Response Update Fcm Token Api User Fcm Token Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/user/push-setting": {
+      "get": {
+        "summary": "Get Push Setting",
+        "description": "\ud478\uc2dc \uc54c\ub9bc \uc124\uc815 \uc870\ud68c",
+        "operationId": "get_push_setting_api_user_push_setting_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PushSettingResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Update Push Setting",
+        "description": "\ud478\uc2dc \uc54c\ub9bc \uc124\uc815 \ubcc0\uacbd",
+        "operationId": "update_push_setting_api_user_push_setting_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PushSettingUpdateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PushSettingResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/user/diving-types": {
+      "get": {
+        "summary": "Get Diving Types",
+        "description": "\ub2e4\uc774\ube59 \uc885\ub958 \ubaa9\ub85d \uc870\ud68c",
+        "operationId": "get_diving_types_api_user_diving_types_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/users__dto__response__DivingTypeResponse"
+                  },
+                  "type": "array",
+                  "title": "Response Get Diving Types Api User Diving Types Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/user/certificate-organizations": {
+      "get": {
+        "summary": "Get Certificate Organizations",
+        "description": "\uc790\uaca9\uc99d \ubc1c\uae09 \uae30\uad00 \ubaa9\ub85d \uc870\ud68c",
+        "operationId": "get_certificate_organizations_api_user_certificate_organizations_get",
+        "parameters": [
+          {
+            "name": "diving_type_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Diving Type Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CertificateOrganizationResponse"
+                  },
+                  "title": "Response Get Certificate Organizations Api User Certificate Organizations Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/user/certificates/list": {
+      "get": {
+        "summary": "Get Certificates List",
+        "description": "\uc790\uaca9\uc99d \ubaa9\ub85d \uc870\ud68c",
+        "operationId": "get_certificates_list_api_user_certificates_list_get",
+        "parameters": [
+          {
+            "name": "organization_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Organization Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CertificateDetailResponse"
+                  },
+                  "title": "Response Get Certificates List Api User Certificates List Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/user/me/certificates": {
+      "get": {
+        "summary": "Get My Certificates",
+        "description": "\ub0b4 \uc790\uaca9\uc99d \ubaa9\ub85d \uc870\ud68c",
+        "operationId": "get_my_certificates_api_user_me_certificates_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/UserCertificateResponse"
+                  },
+                  "type": "array",
+                  "title": "Response Get My Certificates Api User Me Certificates Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Update My Certificates",
+        "description": "\ub0b4 \uc790\uaca9\uc99d \ubaa9\ub85d \uc5c5\ub370\uc774\ud2b8",
+        "operationId": "update_my_certificates_api_user_me_certificates_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCertificatesUpdateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/UserCertificateResponse"
+                  },
+                  "type": "array",
+                  "title": "Response Update My Certificates Api User Me Certificates Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/user/me/certificates/{user_certificate_id}": {
+      "delete": {
+        "summary": "Delete My Certificate",
+        "description": "\ub0b4 \uc790\uaca9\uc99d \uc0ad\uc81c",
+        "operationId": "delete_my_certificate_api_user_me_certificates__user_certificate_id__delete",
+        "parameters": [
+          {
+            "name": "user_certificate_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "User Certificate Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "boolean"
+                  },
+                  "title": "Response Delete My Certificate Api User Me Certificates  User Certificate Id  Delete"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/party/sports": {
       "get": {
         "summary": "Get Sports List",
@@ -433,7 +881,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "items": { "$ref": "#/components/schemas/sports_name" },
+                  "items": {
+                    "$ref": "#/components/schemas/sports_name"
+                  },
                   "type": "array",
                   "title": "Response Get Sports List Api Party Sports Get"
                 }
@@ -450,7 +900,9 @@
         "requestBody": {
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/PartyDetailRequest" }
+              "schema": {
+                "$ref": "#/components/schemas/PartyDetailRequest"
+              }
             }
           },
           "required": true
@@ -460,7 +912,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/PartyCreateResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/PartyCreateResponse"
+                }
               }
             }
           },
@@ -468,7 +922,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -484,14 +940,19 @@
             "name": "party_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Party Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Party Id"
+            }
           }
         ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/PartyUpdateRequest" }
+              "schema": {
+                "$ref": "#/components/schemas/PartyUpdateRequest"
+              }
             }
           }
         },
@@ -500,7 +961,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/PartyUpdateInfo" }
+                "schema": {
+                  "$ref": "#/components/schemas/PartyUpdateInfo"
+                }
               }
             }
           },
@@ -508,7 +971,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -516,25 +981,36 @@
       },
       "delete": {
         "summary": "Delete Party",
-        "description": "파티 삭제 api.",
+        "description": "\ud30c\ud2f0 \uc0ad\uc81c api.",
         "operationId": "delete_party_api_party__party_id__delete",
         "parameters": [
           {
             "name": "party_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Party Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Party Id"
+            }
           }
         ],
         "responses": {
-          "204": { "description": "Party deleted successfully." },
-          "403": { "description": "User is not the organizer." },
-          "404": { "description": "Party not found." },
+          "204": {
+            "description": "Party deleted successfully."
+          },
+          "403": {
+            "description": "User is not the organizer."
+          },
+          "404": {
+            "description": "Party not found."
+          },
           "422": {
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -550,19 +1026,28 @@
             "name": "party_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Party Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Party Id"
+            }
           }
         ],
         "responses": {
           "201": {
             "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
           },
           "422": {
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -578,7 +1063,10 @@
             "name": "party_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Party Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Party Id"
+            }
           }
         ],
         "requestBody": {
@@ -606,7 +1094,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -622,13 +1112,19 @@
             "name": "party_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Party Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Party Id"
+            }
           },
           {
             "name": "participation_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Participation Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Participation Id"
+            }
           }
         ],
         "requestBody": {
@@ -656,7 +1152,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -672,7 +1170,10 @@
             "name": "party_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Party Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Party Id"
+            }
           }
         ],
         "responses": {
@@ -680,7 +1181,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/PartyDetail" }
+                "schema": {
+                  "$ref": "#/components/schemas/PartyDetail"
+                }
               }
             }
           },
@@ -688,7 +1191,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -706,8 +1211,15 @@
             "required": false,
             "schema": {
               "anyOf": [
-                { "type": "array", "items": { "type": "integer" } },
-                { "type": "null" }
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                {
+                  "type": "null"
+                }
               ],
               "title": "Sport Id"
             }
@@ -717,7 +1229,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [{ "type": "boolean" }, { "type": "null" }],
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Is Active"
             }
           },
@@ -726,7 +1245,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Gather Date Min"
             }
           },
@@ -735,7 +1261,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Gather Date Max"
             }
           },
@@ -744,7 +1277,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Search Query"
             }
           },
@@ -752,7 +1292,49 @@
             "name": "page",
             "in": "query",
             "required": false,
-            "schema": { "type": "integer", "default": 1, "title": "Page" }
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "\uc815\ub82c \uae30\uc900: created_at(\ub4f1\ub85d \ucd5c\uc2e0\uc21c) / gather_at(\ubaa8\uc784 \uc2dc\uac01\uc21c)",
+              "default": "created_at",
+              "title": "Sort By"
+            },
+            "description": "\uc815\ub82c \uae30\uc900: created_at(\ub4f1\ub85d \ucd5c\uc2e0\uc21c) / gather_at(\ubaa8\uc784 \uc2dc\uac01\uc21c)"
+          },
+          {
+            "name": "include_closed",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "\ub9c8\uac10\ub41c \ubaa8\uc784 \ud3ec\ud568 \uc5ec\ubd80",
+              "default": false,
+              "title": "Include Closed"
+            },
+            "description": "\ub9c8\uac10\ub41c \ubaa8\uc784 \ud3ec\ud568 \uc5ec\ubd80"
           }
         ],
         "responses": {
@@ -761,9 +1343,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": { "$ref": "#/components/schemas/PartyListDetail" },
-                  "title": "Response Get Party List Api Party List Get"
+                  "$ref": "#/components/schemas/PaginatedResponse_PartyListDetail_"
                 }
               }
             }
@@ -772,7 +1352,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -788,7 +1370,10 @@
             "name": "party_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Party Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Party Id"
+            }
           }
         ],
         "responses": {
@@ -810,7 +1395,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -824,7 +1411,10 @@
             "name": "party_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Party Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Party Id"
+            }
           }
         ],
         "requestBody": {
@@ -842,7 +1432,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/PartyCommentDetail" }
+                "schema": {
+                  "$ref": "#/components/schemas/PartyCommentDetail"
+                }
               }
             }
           },
@@ -850,7 +1442,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -866,13 +1460,19 @@
             "name": "party_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Party Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Party Id"
+            }
           },
           {
             "name": "comment_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Comment Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Comment Id"
+            }
           }
         ],
         "requestBody": {
@@ -890,7 +1490,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/PartyCommentDetail" }
+                "schema": {
+                  "$ref": "#/components/schemas/PartyCommentDetail"
+                }
               }
             }
           },
@@ -898,7 +1500,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -912,25 +1516,37 @@
             "name": "party_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Party Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Party Id"
+            }
           },
           {
             "name": "comment_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Comment Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Comment Id"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
           },
           "422": {
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -946,19 +1562,28 @@
             "name": "party_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Party Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Party Id"
+            }
           }
         ],
         "responses": {
           "201": {
             "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
           },
           "422": {
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -972,19 +1597,28 @@
             "name": "party_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Party Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Party Id"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
           },
           "422": {
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -1000,7 +1634,11 @@
             "name": "page",
             "in": "query",
             "required": false,
-            "schema": { "type": "integer", "default": 1, "title": "Page" }
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "title": "Page"
+            }
           }
         ],
         "responses": {
@@ -1009,9 +1647,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": { "$ref": "#/components/schemas/PartyListDetail" },
-                  "title": "Response Get Self Organized Party Api Party Me Organized Get"
+                  "$ref": "#/components/schemas/PaginatedResponse_PartyListDetail_"
                 }
               }
             }
@@ -1020,7 +1656,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -1036,7 +1674,11 @@
             "name": "page",
             "in": "query",
             "required": false,
-            "schema": { "type": "integer", "default": 1, "title": "Page" }
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "title": "Page"
+            }
           }
         ],
         "responses": {
@@ -1045,9 +1687,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": { "$ref": "#/components/schemas/PartyListDetail" },
-                  "title": "Response Get Participated Party Api Party Me Participated Get"
+                  "$ref": "#/components/schemas/PaginatedResponse_PartyListDetail_"
                 }
               }
             }
@@ -1056,7 +1696,118 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/party/{party_id}/report": {
+      "post": {
+        "summary": "Report Party",
+        "description": "\ud30c\ud2f0 \uc2e0\uace0 API.\n\ub85c\uadf8\uc778\ud55c \uc0ac\uc6a9\uc790\ub9cc \uc2e0\uace0\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4.",
+        "operationId": "report_party_api_party__party_id__report_post",
+        "parameters": [
+          {
+            "name": "party_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Party Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PartyReportRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartyReportResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/party/{party_id}/comment/{comment_id}/report": {
+      "post": {
+        "summary": "Report Comment",
+        "description": "\ub313\uae00 \uc2e0\uace0 API.\n\ub85c\uadf8\uc778\ud55c \uc0ac\uc6a9\uc790\ub9cc \uc2e0\uace0\ud560 \uc218 \uc788\uc73c\uba70, \ubcf8\uc778\uc774 \uc791\uc131\ud55c \ub313\uae00\uc740 \uc2e0\uace0\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.",
+        "operationId": "report_comment_api_party__party_id__comment__comment_id__report_post",
+        "parameters": [
+          {
+            "name": "party_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Party Id"
+            }
+          },
+          {
+            "name": "comment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Comment Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentReportRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommentReportResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -1070,7 +1821,9 @@
         "requestBody": {
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/FeedbackRequest" }
+              "schema": {
+                "$ref": "#/components/schemas/FeedbackRequest"
+              }
             }
           },
           "required": true
@@ -1078,13 +1831,19 @@
         "responses": {
           "201": {
             "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
           },
           "422": {
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -1100,7 +1859,11 @@
             "name": "page",
             "in": "query",
             "required": false,
-            "schema": { "type": "integer", "default": 1, "title": "Page" }
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "title": "Page"
+            }
           }
         ],
         "responses": {
@@ -1108,7 +1871,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/NotificationListDto" }
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationListDto"
+                }
               }
             }
           },
@@ -1116,7 +1881,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -1140,13 +1907,19 @@
         "responses": {
           "201": {
             "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
           },
           "422": {
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -1171,24 +1944,81 @@
         }
       }
     },
+    "/admin/dashboard": {
+      "get": {
+        "summary": "Dashboard",
+        "operationId": "dashboard_admin_dashboard_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ]
+      }
+    },
+    "/admin": {
+      "get": {
+        "summary": "Admin Index",
+        "operationId": "admin_index_admin_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ]
+      }
+    },
     "/admin/feedback": {
       "get": {
         "summary": "List Feedback",
         "operationId": "list_feedback_admin_feedback_get",
-        "security": [{ "HTTPBasic": [] }],
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
         "parameters": [
           {
             "name": "page",
             "in": "query",
             "required": false,
-            "schema": { "type": "integer", "default": 1, "title": "Page" }
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "title": "Page"
+            }
           },
           {
             "name": "search",
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Search"
             }
           },
@@ -1196,19 +2026,29 @@
             "name": "page_size",
             "in": "query",
             "required": false,
-            "schema": { "type": "integer", "default": 20, "title": "Page Size" }
+            "schema": {
+              "type": "integer",
+              "default": 20,
+              "title": "Page Size"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
           },
           "422": {
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -1219,25 +2059,38 @@
       "get": {
         "summary": "View Feedback",
         "operationId": "view_feedback_admin_feedback__feedback_id__get",
-        "security": [{ "HTTPBasic": [] }],
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
         "parameters": [
           {
             "name": "feedback_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Feedback Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Feedback Id"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
           },
           "422": {
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -1248,13 +2101,20 @@
       "post": {
         "summary": "Delete Feedback",
         "operationId": "delete_feedback_admin_feedback__feedback_id__delete_post",
-        "security": [{ "HTTPBasic": [] }],
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
         "parameters": [
           {
             "name": "feedback_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "Feedback Id" }
+            "schema": {
+              "type": "integer",
+              "title": "Feedback Id"
+            }
           }
         ],
         "responses": {
@@ -1264,7 +2124,9 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": { "type": "boolean" },
+                  "additionalProperties": {
+                    "type": "boolean"
+                  },
                   "title": "Response Delete Feedback Admin Feedback  Feedback Id  Delete Post"
                 }
               }
@@ -1274,7 +2136,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -1285,20 +2149,35 @@
       "get": {
         "summary": "List Users",
         "operationId": "list_users_admin_users_get",
-        "security": [{ "HTTPBasic": [] }],
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
         "parameters": [
           {
             "name": "page",
             "in": "query",
             "required": false,
-            "schema": { "type": "integer", "default": 1, "title": "Page" }
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "title": "Page"
+            }
           },
           {
             "name": "search",
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Search"
             }
           },
@@ -1306,19 +2185,29 @@
             "name": "page_size",
             "in": "query",
             "required": false,
-            "schema": { "type": "integer", "default": 20, "title": "Page Size" }
+            "schema": {
+              "type": "integer",
+              "default": 20,
+              "title": "Page Size"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
           },
           "422": {
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -1329,25 +2218,38 @@
       "get": {
         "summary": "View User",
         "operationId": "view_user_admin_users__user_id__get",
-        "security": [{ "HTTPBasic": [] }],
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
         "parameters": [
           {
             "name": "user_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "User Id" }
+            "schema": {
+              "type": "integer",
+              "title": "User Id"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
           },
           "422": {
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -1358,13 +2260,20 @@
       "post": {
         "summary": "Toggle User Active",
         "operationId": "toggle_user_active_admin_users__user_id__toggle_active_post",
-        "security": [{ "HTTPBasic": [] }],
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
         "parameters": [
           {
             "name": "user_id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer", "title": "User Id" }
+            "schema": {
+              "type": "integer",
+              "title": "User Id"
+            }
           }
         ],
         "responses": {
@@ -1374,6 +2283,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "additionalProperties": true,
                   "title": "Response Toggle User Active Admin Users  User Id  Toggle Active Post"
                 }
               }
@@ -1383,7 +2293,1774 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/reports": {
+      "get": {
+        "summary": "List Reports",
+        "operationId": "list_reports_admin_reports_get",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Search"
+            }
+          },
+          {
+            "name": "is_resolved",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Is Resolved"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 20,
+              "title": "Page Size"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/reports/{report_id}": {
+      "get": {
+        "summary": "View Report",
+        "operationId": "view_report_admin_reports__report_id__get",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "report_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Report Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/reports/{report_id}/resolve": {
+      "post": {
+        "summary": "Resolve Report",
+        "operationId": "resolve_report_admin_reports__report_id__resolve_post",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "report_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Report Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Resolve Report Admin Reports  Report Id  Resolve Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/reports/{report_id}/delete": {
+      "post": {
+        "summary": "Delete Report",
+        "operationId": "delete_report_admin_reports__report_id__delete_post",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "report_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Report Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "boolean"
+                  },
+                  "title": "Response Delete Report Admin Reports  Report Id  Delete Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/comment-reports": {
+      "get": {
+        "summary": "List Comment Reports",
+        "operationId": "list_comment_reports_admin_comment_reports_get",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Search"
+            }
+          },
+          {
+            "name": "is_resolved",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Is Resolved"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 20,
+              "title": "Page Size"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/comment-reports/{report_id}": {
+      "get": {
+        "summary": "View Comment Report",
+        "operationId": "view_comment_report_admin_comment_reports__report_id__get",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "report_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Report Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/comment-reports/{report_id}/resolve": {
+      "post": {
+        "summary": "Resolve Comment Report",
+        "operationId": "resolve_comment_report_admin_comment_reports__report_id__resolve_post",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "report_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Report Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Resolve Comment Report Admin Comment Reports  Report Id  Resolve Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/comment-reports/{report_id}/delete": {
+      "post": {
+        "summary": "Delete Comment Report",
+        "operationId": "delete_comment_report_admin_comment_reports__report_id__delete_post",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "report_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Report Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "boolean"
+                  },
+                  "title": "Response Delete Comment Report Admin Comment Reports  Report Id  Delete Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/diving-types": {
+      "get": {
+        "summary": "List Diving Types",
+        "description": "\ub2e4\uc774\ube59 \uc885\ub958 \ubaa9\ub85d",
+        "operationId": "list_diving_types_admin_diving_types_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/users__dto__response__DivingTypeResponse"
+                  },
+                  "type": "array",
+                  "title": "Response List Diving Types Admin Diving Types Get"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create Diving Type",
+        "description": "\ub2e4\uc774\ube59 \uc885\ub958 \uc0dd\uc131",
+        "operationId": "create_diving_type_admin_diving_types_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DivingTypeCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/users__dto__response__DivingTypeResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ]
+      }
+    },
+    "/admin/diving-types/{type_id}": {
+      "put": {
+        "summary": "Update Diving Type",
+        "description": "\ub2e4\uc774\ube59 \uc885\ub958 \uc218\uc815",
+        "operationId": "update_diving_type_admin_diving_types__type_id__put",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "type_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Type Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DivingTypeCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/users__dto__response__DivingTypeResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Diving Type",
+        "description": "\ub2e4\uc774\ube59 \uc885\ub958 \uc0ad\uc81c",
+        "operationId": "delete_diving_type_admin_diving_types__type_id__delete",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "type_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Type Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "boolean"
+                  },
+                  "title": "Response Delete Diving Type Admin Diving Types  Type Id  Delete"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/certificate-organizations": {
+      "get": {
+        "summary": "List Organizations",
+        "description": "\uc790\uaca9\uc99d \uae30\uad00 \ubaa9\ub85d",
+        "operationId": "list_organizations_admin_certificate_organizations_get",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "diving_type_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Diving Type Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrganizationResponse"
+                  },
+                  "title": "Response List Organizations Admin Certificate Organizations Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Organization",
+        "description": "\uc790\uaca9\uc99d \uae30\uad00 \uc0dd\uc131",
+        "operationId": "create_organization_admin_certificate_organizations_post",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrganizationCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/certificate-organizations/{org_id}": {
+      "put": {
+        "summary": "Update Organization",
+        "description": "\uc790\uaca9\uc99d \uae30\uad00 \uc218\uc815",
+        "operationId": "update_organization_admin_certificate_organizations__org_id__put",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Org Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrganizationCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Organization",
+        "description": "\uc790\uaca9\uc99d \uae30\uad00 \uc0ad\uc81c",
+        "operationId": "delete_organization_admin_certificate_organizations__org_id__delete",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Org Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "boolean"
+                  },
+                  "title": "Response Delete Organization Admin Certificate Organizations  Org Id  Delete"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/certificate-organizations/{org_id}/toggle-active": {
+      "post": {
+        "summary": "Toggle Organization Active",
+        "description": "\uc790\uaca9\uc99d \uae30\uad00 \ud65c\uc131\ud654/\ube44\ud65c\uc131\ud654",
+        "operationId": "toggle_organization_active_admin_certificate_organizations__org_id__toggle_active_post",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Org Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Toggle Organization Active Admin Certificate Organizations  Org Id  Toggle Active Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/certificates": {
+      "get": {
+        "summary": "List Certificates",
+        "description": "\uc790\uaca9\uc99d \ubaa9\ub85d",
+        "operationId": "list_certificates_admin_certificates_get",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "organization_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Organization Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CertificateResponse"
+                  },
+                  "title": "Response List Certificates Admin Certificates Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Certificate",
+        "description": "\uc790\uaca9\uc99d \uc0dd\uc131",
+        "operationId": "create_certificate_admin_certificates_post",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CertificateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/certificates/{cert_id}": {
+      "put": {
+        "summary": "Update Certificate",
+        "description": "\uc790\uaca9\uc99d \uc218\uc815",
+        "operationId": "update_certificate_admin_certificates__cert_id__put",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "cert_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Cert Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CertificateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Certificate",
+        "description": "\uc790\uaca9\uc99d \uc0ad\uc81c",
+        "operationId": "delete_certificate_admin_certificates__cert_id__delete",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "cert_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Cert Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "boolean"
+                  },
+                  "title": "Response Delete Certificate Admin Certificates  Cert Id  Delete"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/certificates/{cert_id}/toggle-active": {
+      "post": {
+        "summary": "Toggle Certificate Active",
+        "description": "\uc790\uaca9\uc99d \ud65c\uc131\ud654/\ube44\ud65c\uc131\ud654",
+        "operationId": "toggle_certificate_active_admin_certificates__cert_id__toggle_active_post",
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "cert_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Cert Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Toggle Certificate Active Admin Certificates  Cert Id  Toggle Active Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/community/post": {
+      "post": {
+        "tags": [
+          "Community"
+        ],
+        "summary": "Create Post",
+        "description": "\uac8c\uc2dc\uae00 \uc0dd\uc131 (\uc81c\ubaa9/\ubcf8\ubb38/\ud0dc\uadf8\uba85 + \ucd5c\ub3004\uc7a5 \uc774\ubbf8\uc9c0)",
+        "operationId": "create_post_api_community_post_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_post_api_community_post_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostCreateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Community"
+        ],
+        "summary": "Get Posts",
+        "description": "\uac8c\uc2dc\uae00 \ubaa9\ub85d (\uac80\uc0c9, \ud398\uc774\uc9d5)",
+        "operationId": "get_posts_api_community_post_get",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "title": "Page Size"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Search"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/community/post/{post_id}": {
+      "get": {
+        "tags": [
+          "Community"
+        ],
+        "summary": "Get Post Detail",
+        "description": "\uac8c\uc2dc\uae00 \uc0c1\uc138 + \uc870\ud68c\uc218 \uc99d\uac00",
+        "operationId": "get_post_detail_api_community_post__post_id__get",
+        "parameters": [
+          {
+            "name": "post_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Post Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostDetailItemDto"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/community/post/{post_id}/like": {
+      "post": {
+        "tags": [
+          "Community"
+        ],
+        "summary": "Toggle Post Like",
+        "description": "\uac8c\uc2dc\uae00 \uc88b\uc544\uc694 \ud1a0\uae00",
+        "operationId": "toggle_post_like_api_community_post__post_id__like_post",
+        "parameters": [
+          {
+            "name": "post_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Post Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Toggle Post Like Api Community Post  Post Id  Like Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/community/post/{post_id}/comment": {
+      "get": {
+        "tags": [
+          "Community"
+        ],
+        "summary": "Get Comments In Post",
+        "description": "\ub313\uae00 \uc870\ud68c",
+        "operationId": "get_comments_in_post_api_community_post__post_id__comment_get",
+        "parameters": [
+          {
+            "name": "post_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Post Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CommentDto"
+                  },
+                  "title": "Response Get Comments In Post Api Community Post  Post Id  Comment Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Community"
+        ],
+        "summary": "Create Comment",
+        "description": "\ub313\uae00 \uc791\uc131",
+        "operationId": "create_comment_api_community_post__post_id__comment_post",
+        "parameters": [
+          {
+            "name": "post_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Post Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostCommentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Create Comment Api Community Post  Post Id  Comment Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/community/comment/{comment_id}": {
+      "put": {
+        "tags": [
+          "Community"
+        ],
+        "summary": "Update Comment",
+        "description": "\ub313\uae00 \uc218\uc815",
+        "operationId": "update_comment_api_community_comment__comment_id__put",
+        "parameters": [
+          {
+            "name": "comment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Comment Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostCommentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Update Comment Api Community Comment  Comment Id  Put"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Community"
+        ],
+        "summary": "Delete Comment",
+        "description": "\ub313\uae00 \uc0ad\uc81c(\ube44\ud65c\uc131\ud654)",
+        "operationId": "delete_comment_api_community_comment__comment_id__delete",
+        "parameters": [
+          {
+            "name": "comment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Comment Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Delete Comment Api Community Comment  Comment Id  Delete"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/community/comment/{comment_id}/like": {
+      "post": {
+        "tags": [
+          "Community"
+        ],
+        "summary": "Toggle Comment Like",
+        "description": "\ub313\uae00 \uc88b\uc544\uc694 \ud1a0\uae00",
+        "operationId": "toggle_comment_like_api_community_comment__comment_id__like_post",
+        "parameters": [
+          {
+            "name": "comment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Comment Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Toggle Comment Like Api Community Comment  Comment Id  Like Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/community/comment/{comment_id}/reply": {
+      "post": {
+        "tags": [
+          "Community"
+        ],
+        "summary": "Create Reply",
+        "description": "\ub300\ub313\uae00 \uc791\uc131",
+        "operationId": "create_reply_api_community_comment__comment_id__reply_post",
+        "parameters": [
+          {
+            "name": "comment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Comment Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostCommentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Create Reply Api Community Comment  Comment Id  Reply Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/community/comment/reply/{reply_id}": {
+      "put": {
+        "tags": [
+          "Community"
+        ],
+        "summary": "Update Reply",
+        "description": "\ub300\ub313\uae00 \uc218\uc815",
+        "operationId": "update_reply_api_community_comment_reply__reply_id__put",
+        "parameters": [
+          {
+            "name": "reply_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Reply Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostCommentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Update Reply Api Community Comment Reply  Reply Id  Put"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Community"
+        ],
+        "summary": "Delete Reply",
+        "description": "\ub300\ub313\uae00 \uc0ad\uc81c(\ube44\ud65c\uc131\ud654)",
+        "operationId": "delete_reply_api_community_comment_reply__reply_id__delete",
+        "parameters": [
+          {
+            "name": "reply_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Reply Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Delete Reply Api Community Comment Reply  Reply Id  Delete"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/community/comment/reply/{reply_id}/like": {
+      "post": {
+        "tags": [
+          "Community"
+        ],
+        "summary": "Toggle Reply Like",
+        "description": "\ub300\ub313\uae00 \uc88b\uc544\uc694 \ud1a0\uae00",
+        "operationId": "toggle_reply_like_api_community_comment_reply__reply_id__like_post",
+        "parameters": [
+          {
+            "name": "reply_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Reply Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Toggle Reply Like Api Community Comment Reply  Reply Id  Like Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -1413,9 +4090,16 @@
   "components": {
     "schemas": {
       "AccessTokenRequest": {
-        "properties": { "user_uid": { "type": "string", "title": "User Uid" } },
+        "properties": {
+          "user_uid": {
+            "type": "string",
+            "title": "User Uid"
+          }
+        },
         "type": "object",
-        "required": ["user_uid"],
+        "required": [
+          "user_uid"
+        ],
         "title": "AccessTokenRequest"
       },
       "AccessTokenResponse": {
@@ -1430,19 +4114,72 @@
             "title": "Refresh Token",
             "default": ""
           },
-          "user_info": { "$ref": "#/components/schemas/UserInfo" },
-          "is_new_user": { "type": "boolean", "title": "Is New User" }
+          "user_info": {
+            "$ref": "#/components/schemas/UserInfo"
+          },
+          "is_new_user": {
+            "type": "boolean",
+            "title": "Is New User"
+          }
         },
         "type": "object",
-        "required": ["user_info", "is_new_user"],
+        "required": [
+          "user_info",
+          "is_new_user"
+        ],
         "title": "AccessTokenResponse"
+      },
+      "Body_create_post_api_community_post_post": {
+        "properties": {
+          "image": {
+            "items": {
+              "type": "string",
+              "format": "binary"
+            },
+            "type": "array",
+            "title": "Image"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "body": {
+            "type": "string",
+            "title": "Body"
+          },
+          "tag_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tag Ids"
+          }
+        },
+        "type": "object",
+        "required": [
+          "title",
+          "body"
+        ],
+        "title": "Body_create_post_api_community_post_post"
       },
       "Body_update_self_profile_image_api_user_me_profile_image_post": {
         "properties": {
           "profile_image": {
             "anyOf": [
-              { "type": "string", "format": "binary" },
-              { "type": "null" }
+              {
+                "type": "string",
+                "format": "binary"
+              },
+              {
+                "type": "null"
+              }
             ],
             "title": "Profile Image"
           }
@@ -1450,16 +4187,433 @@
         "type": "object",
         "title": "Body_update_self_profile_image_api_user_me_profile_image_post"
       },
-      "FeedbackRequest": {
-        "properties": { "content": { "type": "string", "title": "Content" } },
+      "CertificateCreateRequest": {
+        "properties": {
+          "organization_id": {
+            "type": "integer",
+            "title": "Organization Id"
+          },
+          "level": {
+            "type": "integer",
+            "title": "Level"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          }
+        },
         "type": "object",
-        "required": ["content"],
+        "required": [
+          "organization_id",
+          "level",
+          "name"
+        ],
+        "title": "CertificateCreateRequest"
+      },
+      "CertificateDetailResponse": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "organization_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Organization Id"
+          },
+          "organization_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Organization Name"
+          },
+          "diving_type_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Diving Type Id"
+          },
+          "diving_type_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Diving Type Name"
+          },
+          "level": {
+            "type": "integer",
+            "title": "Level"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "level",
+          "name"
+        ],
+        "title": "CertificateDetailResponse"
+      },
+      "CertificateOrganizationResponse": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "logo_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Logo Url"
+          },
+          "website_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website Url"
+          },
+          "diving_type_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Diving Type Id"
+          },
+          "diving_type_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Diving Type Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "title": "CertificateOrganizationResponse"
+      },
+      "CertificateResponse": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "organization_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Organization Id"
+          },
+          "organization_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Organization Name"
+          },
+          "level": {
+            "type": "integer",
+            "title": "Level"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "is_active": {
+            "type": "boolean",
+            "title": "Is Active"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "level",
+          "name",
+          "is_active"
+        ],
+        "title": "CertificateResponse"
+      },
+      "CommentBaseDto": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "content": {
+            "type": "string",
+            "title": "Content"
+          },
+          "writer": {
+            "$ref": "#/components/schemas/UserSimpleProfile"
+          },
+          "likes": {
+            "type": "integer",
+            "title": "Likes"
+          },
+          "is_active": {
+            "type": "boolean",
+            "title": "Is Active"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "created_at",
+          "content",
+          "writer",
+          "likes",
+          "is_active"
+        ],
+        "title": "CommentBaseDto"
+      },
+      "CommentDto": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "content": {
+            "type": "string",
+            "title": "Content"
+          },
+          "writer": {
+            "$ref": "#/components/schemas/UserSimpleProfile"
+          },
+          "likes": {
+            "type": "integer",
+            "title": "Likes"
+          },
+          "is_active": {
+            "type": "boolean",
+            "title": "Is Active"
+          },
+          "replies": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/CommentBaseDto"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Replies"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "created_at",
+          "content",
+          "writer",
+          "likes",
+          "is_active",
+          "replies"
+        ],
+        "title": "CommentDto"
+      },
+      "CommentReportRequest": {
+        "properties": {
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          },
+          "detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "required": [
+          "reason"
+        ],
+        "title": "CommentReportRequest"
+      },
+      "CommentReportResponse": {
+        "properties": {
+          "report_id": {
+            "type": "integer",
+            "title": "Report Id"
+          },
+          "comment_id": {
+            "type": "integer",
+            "title": "Comment Id"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          }
+        },
+        "type": "object",
+        "required": [
+          "report_id",
+          "comment_id",
+          "reason"
+        ],
+        "title": "CommentReportResponse"
+      },
+      "DivingTypeCreateRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "DivingTypeCreateRequest"
+      },
+      "FcmTokenUpdateRequest": {
+        "properties": {
+          "fcm_token": {
+            "type": "string",
+            "title": "Fcm Token"
+          }
+        },
+        "type": "object",
+        "required": [
+          "fcm_token"
+        ],
+        "title": "FcmTokenUpdateRequest"
+      },
+      "FeedbackRequest": {
+        "properties": {
+          "content": {
+            "type": "string",
+            "title": "Content"
+          }
+        },
+        "type": "object",
+        "required": [
+          "content"
+        ],
         "title": "FeedbackRequest"
       },
       "HTTPValidationError": {
         "properties": {
           "detail": {
-            "items": { "$ref": "#/components/schemas/ValidationError" },
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
             "type": "array",
             "title": "Detail"
           }
@@ -1479,28 +4633,98 @@
             "title": "Refresh Token",
             "default": ""
           },
-          "user_info": { "$ref": "#/components/schemas/UserInfo" }
+          "user_info": {
+            "$ref": "#/components/schemas/UserInfo"
+          }
         },
         "type": "object",
-        "required": ["user_info"],
+        "required": [
+          "user_info"
+        ],
         "title": "LoginResponse"
+      },
+      "MobileAuthRequest": {
+        "properties": {
+          "token": {
+            "type": "string",
+            "title": "Token"
+          },
+          "platform": {
+            "type": "string",
+            "title": "Platform"
+          },
+          "user_info": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "User Info"
+          }
+        },
+        "type": "object",
+        "required": [
+          "token",
+          "platform",
+          "user_info"
+        ],
+        "title": "MobileAuthRequest",
+        "description": "\ubaa8\ubc14\uc77c \uc571\uc5d0\uc11c \uc18c\uc15c \ub85c\uadf8\uc778 \ud6c4 \ud1a0\ud070\uc744 \ucc98\ub9ac\ud558\uae30 \uc704\ud55c \uc694\uccad \ubaa8\ub378"
       },
       "NotificationDto": {
         "properties": {
-          "type": { "type": "string", "title": "Type" },
+          "type": {
+            "type": "string",
+            "title": "Type"
+          },
           "classification": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Classification"
           },
           "related_id": {
-            "anyOf": [{ "type": "integer" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Related Id"
           },
-          "message": { "type": "string", "title": "Message" },
-          "is_global": { "type": "boolean", "title": "Is Global" },
-          "id": { "type": "integer", "title": "Id" },
-          "created_at": { "type": "string", "title": "Created At" },
-          "is_read": { "type": "boolean", "title": "Is Read" }
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "is_global": {
+            "type": "boolean",
+            "title": "Is Global"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "is_read": {
+            "type": "boolean",
+            "title": "Is Read"
+          }
         },
         "type": "object",
         "required": [
@@ -1516,41 +4740,255 @@
       "NotificationListDto": {
         "properties": {
           "notifications": {
-            "items": { "$ref": "#/components/schemas/NotificationDto" },
+            "items": {
+              "$ref": "#/components/schemas/NotificationDto"
+            },
             "type": "array",
             "title": "Notifications"
           },
-          "total_pages": { "type": "integer", "title": "Total Pages" }
+          "total_pages": {
+            "type": "integer",
+            "title": "Total Pages"
+          }
         },
         "type": "object",
-        "required": ["notifications", "total_pages"],
+        "required": [
+          "notifications",
+          "total_pages"
+        ],
         "title": "NotificationListDto"
       },
       "NotificationReadRequest": {
         "properties": {
           "read_notification_list": {
-            "items": { "type": "integer" },
+            "items": {
+              "type": "integer"
+            },
             "type": "array",
             "title": "Read Notification List"
           }
         },
         "type": "object",
-        "required": ["read_notification_list"],
+        "required": [
+          "read_notification_list"
+        ],
         "title": "NotificationReadRequest"
       },
       "NotificationUnreadCountDto": {
-        "properties": { "count": { "type": "integer", "title": "Count" } },
+        "properties": {
+          "count": {
+            "type": "integer",
+            "title": "Count"
+          }
+        },
         "type": "object",
-        "required": ["count"],
+        "required": [
+          "count"
+        ],
         "title": "NotificationUnreadCountDto"
+      },
+      "OrganizationCreateRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "logo_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Logo Url"
+          },
+          "website_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website Url"
+          },
+          "diving_type_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Diving Type Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "OrganizationCreateRequest"
+      },
+      "OrganizationResponse": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "logo_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Logo Url"
+          },
+          "website_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website Url"
+          },
+          "diving_type_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Diving Type Id"
+          },
+          "diving_type_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Diving Type Name"
+          },
+          "is_active": {
+            "type": "boolean",
+            "title": "Is Active"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "is_active"
+        ],
+        "title": "OrganizationResponse"
+      },
+      "PaginatedResponse_PartyListDetail_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PartyListDetail"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationMeta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "pagination"
+        ],
+        "title": "PaginatedResponse[PartyListDetail]"
+      },
+      "PaginationMeta": {
+        "properties": {
+          "total_count": {
+            "type": "integer",
+            "title": "Total Count",
+            "description": "\uc804\uccb4 \uc544\uc774\ud15c \uc218"
+          },
+          "total_pages": {
+            "type": "integer",
+            "title": "Total Pages",
+            "description": "\uc804\uccb4 \ud398\uc774\uc9c0 \uc218"
+          },
+          "current_page": {
+            "type": "integer",
+            "title": "Current Page",
+            "description": "\ud604\uc7ac \ud398\uc774\uc9c0 \ubc88\ud638"
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size",
+            "description": "\ud398\uc774\uc9c0\ub2f9 \uc544\uc774\ud15c \uc218"
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More",
+            "description": "\ub2e4\uc74c \ud398\uc774\uc9c0 \uc874\uc7ac \uc5ec\ubd80"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_count",
+          "total_pages",
+          "current_page",
+          "page_size",
+          "has_more"
+        ],
+        "title": "PaginationMeta",
+        "description": "\ud398\uc774\uc9c0\ub124\uc774\uc158 \uba54\ud0c0\ub370\uc774\ud130"
       },
       "ParticipantProfile": {
         "properties": {
-          "user_id": { "type": "integer", "title": "User Id" },
-          "profile_picture": { "type": "string", "title": "Profile Picture" },
-          "name": { "type": "string", "title": "Name" },
+          "user_id": {
+            "type": "integer",
+            "title": "User Id"
+          },
+          "profile_picture": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Profile Picture"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
           "participation_id": {
-            "anyOf": [{ "type": "integer" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Participation Id"
           },
           "is_organizer": {
@@ -1560,59 +4998,128 @@
           }
         },
         "type": "object",
-        "required": ["user_id", "profile_picture", "name"],
+        "required": [
+          "user_id",
+          "profile_picture",
+          "name"
+        ],
         "title": "ParticipantProfile"
       },
       "ParticipationStatus": {
         "type": "integer",
-        "enum": [0, 1, 2, 3],
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
         "title": "ParticipationStatus"
       },
       "PartyCommentDetail": {
         "properties": {
-          "id": { "type": "integer", "title": "Id" },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
           "commenter_profile": {
             "$ref": "#/components/schemas/UserSimpleProfile"
           },
-          "posted_date": { "type": "string", "title": "Posted Date" },
-          "content": { "type": "string", "title": "Content" },
+          "posted_date": {
+            "type": "string",
+            "title": "Posted Date"
+          },
+          "content": {
+            "type": "string",
+            "title": "Content"
+          },
           "is_writer": {
-            "anyOf": [{ "type": "boolean" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Is Writer"
           }
         },
         "type": "object",
-        "required": ["id", "commenter_profile", "posted_date", "content"],
+        "required": [
+          "id",
+          "commenter_profile",
+          "posted_date",
+          "content"
+        ],
         "title": "PartyCommentDetail"
       },
       "PartyCommentPostRequest": {
-        "properties": { "content": { "type": "string", "title": "Content" } },
+        "properties": {
+          "content": {
+            "type": "string",
+            "title": "Content"
+          }
+        },
         "type": "object",
-        "required": ["content"],
+        "required": [
+          "content"
+        ],
         "title": "PartyCommentPostRequest"
       },
       "PartyCreateResponse": {
         "properties": {
-          "party_id": { "type": "integer", "title": "Party Id" }
+          "party_id": {
+            "type": "integer",
+            "title": "Party Id"
+          }
         },
         "type": "object",
-        "required": ["party_id"],
+        "required": [
+          "party_id"
+        ],
         "title": "PartyCreateResponse"
       },
       "PartyDetail": {
         "properties": {
-          "id": { "type": "integer", "title": "Id" },
-          "title": { "type": "string", "title": "Title" },
-          "sport_name": { "type": "string", "title": "Sport Name" },
-          "gather_date": { "type": "string", "title": "Gather Date" },
-          "gather_time": { "type": "string", "title": "Gather Time" },
-          "price": { "type": "integer", "title": "Price" },
-          "body": { "type": "string", "title": "Body" },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "sport_name": {
+            "type": "string",
+            "title": "Sport Name"
+          },
+          "gather_date": {
+            "type": "string",
+            "title": "Gather Date"
+          },
+          "gather_time": {
+            "type": "string",
+            "title": "Gather Time"
+          },
+          "price": {
+            "type": "integer",
+            "title": "Price"
+          },
+          "body": {
+            "type": "string",
+            "title": "Body"
+          },
           "organizer_profile": {
             "$ref": "#/components/schemas/UserSimpleProfile"
           },
-          "posted_date": { "type": "string", "title": "Posted Date" },
-          "is_active": { "type": "boolean", "title": "Is Active" },
+          "posted_date": {
+            "type": "string",
+            "title": "Posted Date"
+          },
+          "is_active": {
+            "type": "boolean",
+            "title": "Is Active"
+          },
           "max_participants": {
             "type": "integer",
             "title": "Max Participants"
@@ -1629,35 +5136,69 @@
           "pending_participants": {
             "anyOf": [
               {
-                "items": { "$ref": "#/components/schemas/ParticipantProfile" },
+                "items": {
+                  "$ref": "#/components/schemas/ParticipantProfile"
+                },
                 "type": "array"
               },
-              { "type": "null" }
+              {
+                "type": "null"
+              }
             ],
             "title": "Pending Participants"
           },
           "approved_participants": {
             "anyOf": [
               {
-                "items": { "$ref": "#/components/schemas/ParticipantProfile" },
+                "items": {
+                  "$ref": "#/components/schemas/ParticipantProfile"
+                },
                 "type": "array"
               },
-              { "type": "null" }
+              {
+                "type": "null"
+              }
             ],
             "title": "Approved Participants"
           },
           "notice": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Notice"
           },
-          "place_name": { "type": "string", "title": "Place Name" },
+          "place_name": {
+            "type": "string",
+            "title": "Place Name"
+          },
           "place_id": {
-            "anyOf": [{ "type": "integer" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Place Id"
           },
-          "address": { "type": "string", "title": "Address" },
-          "longitude": { "type": "number", "title": "Longitude" },
-          "latitude": { "type": "number", "title": "Latitude" }
+          "address": {
+            "type": "string",
+            "title": "Address"
+          },
+          "longitude": {
+            "type": "number",
+            "title": "Longitude"
+          },
+          "latitude": {
+            "type": "number",
+            "title": "Latitude"
+          }
         },
         "type": "object",
         "required": [
@@ -1683,21 +5224,56 @@
       },
       "PartyDetailRequest": {
         "properties": {
-          "title": { "type": "string", "title": "Title" },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
           "body": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Body"
           },
-          "gather_date": { "type": "string", "title": "Gather Date" },
-          "gather_time": { "type": "string", "title": "Gather Time" },
+          "gather_date": {
+            "type": "string",
+            "title": "Gather Date"
+          },
+          "gather_time": {
+            "type": "string",
+            "title": "Gather Time"
+          },
           "place_id": {
-            "anyOf": [{ "type": "integer" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Place Id"
           },
-          "place_name": { "type": "string", "title": "Place Name" },
-          "address": { "type": "string", "title": "Address" },
-          "longitude": { "type": "number", "title": "Longitude" },
-          "latitude": { "type": "number", "title": "Latitude" },
+          "place_name": {
+            "type": "string",
+            "title": "Place Name"
+          },
+          "address": {
+            "type": "string",
+            "title": "Address"
+          },
+          "longitude": {
+            "type": "number",
+            "title": "Longitude"
+          },
+          "latitude": {
+            "type": "number",
+            "title": "Latitude"
+          },
           "participant_limit": {
             "type": "integer",
             "title": "Participant Limit",
@@ -1708,9 +5284,19 @@
             "title": "Participant Cost",
             "default": 0
           },
-          "sport_id": { "type": "integer", "title": "Sport Id" },
+          "sport_id": {
+            "type": "integer",
+            "title": "Sport Id"
+          },
           "notice": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Notice"
           }
         },
@@ -1729,18 +5315,45 @@
       },
       "PartyListDetail": {
         "properties": {
-          "id": { "type": "integer", "title": "Id" },
-          "title": { "type": "string", "title": "Title" },
-          "sport_name": { "type": "string", "title": "Sport Name" },
-          "gather_date": { "type": "string", "title": "Gather Date" },
-          "gather_time": { "type": "string", "title": "Gather Time" },
-          "price": { "type": "integer", "title": "Price" },
-          "body": { "type": "string", "title": "Body" },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "sport_name": {
+            "type": "string",
+            "title": "Sport Name"
+          },
+          "gather_date": {
+            "type": "string",
+            "title": "Gather Date"
+          },
+          "gather_time": {
+            "type": "string",
+            "title": "Gather Time"
+          },
+          "price": {
+            "type": "integer",
+            "title": "Price"
+          },
+          "body": {
+            "type": "string",
+            "title": "Body"
+          },
           "organizer_profile": {
             "$ref": "#/components/schemas/UserSimpleProfile"
           },
-          "posted_date": { "type": "string", "title": "Posted Date" },
-          "is_active": { "type": "boolean", "title": "Is Active" },
+          "posted_date": {
+            "type": "string",
+            "title": "Posted Date"
+          },
+          "is_active": {
+            "type": "boolean",
+            "title": "Is Active"
+          },
           "participants_info": {
             "type": "string",
             "title": "Participants Info"
@@ -1750,14 +5363,33 @@
             "title": "Is User Organizer",
             "default": false
           },
-          "place_name": { "type": "string", "title": "Place Name" },
+          "place_name": {
+            "type": "string",
+            "title": "Place Name"
+          },
           "place_id": {
-            "anyOf": [{ "type": "integer" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Place Id"
           },
-          "address": { "type": "string", "title": "Address" },
-          "longitude": { "type": "number", "title": "Longitude" },
-          "latitude": { "type": "number", "title": "Latitude" }
+          "address": {
+            "type": "string",
+            "title": "Address"
+          },
+          "longitude": {
+            "type": "number",
+            "title": "Longitude"
+          },
+          "latitude": {
+            "type": "number",
+            "title": "Latitude"
+          }
         },
         "type": "object",
         "required": [
@@ -1786,29 +5418,118 @@
             "type": "integer",
             "title": "Participation Id"
           },
-          "status": { "$ref": "#/components/schemas/ParticipationStatus" }
+          "status": {
+            "$ref": "#/components/schemas/ParticipationStatus"
+          }
         },
         "type": "object",
-        "required": ["participation_id", "status"],
+        "required": [
+          "participation_id",
+          "status"
+        ],
         "title": "PartyParticipationStatusChangeResponse"
+      },
+      "PartyReportRequest": {
+        "properties": {
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          },
+          "detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "required": [
+          "reason"
+        ],
+        "title": "PartyReportRequest"
+      },
+      "PartyReportResponse": {
+        "properties": {
+          "report_id": {
+            "type": "integer",
+            "title": "Report Id"
+          },
+          "party_id": {
+            "type": "integer",
+            "title": "Party Id"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          }
+        },
+        "type": "object",
+        "required": [
+          "report_id",
+          "party_id",
+          "reason"
+        ],
+        "title": "PartyReportResponse"
       },
       "PartyUpdateInfo": {
         "properties": {
-          "id": { "type": "integer", "title": "Id" },
-          "title": { "type": "string", "title": "Title" },
-          "sport_name": { "type": "string", "title": "Sport Name" },
-          "gather_date": { "type": "string", "title": "Gather Date" },
-          "gather_time": { "type": "string", "title": "Gather Time" },
-          "price": { "type": "integer", "title": "Price" },
-          "body": { "type": "string", "title": "Body" },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "sport_name": {
+            "type": "string",
+            "title": "Sport Name"
+          },
+          "gather_date": {
+            "type": "string",
+            "title": "Gather Date"
+          },
+          "gather_time": {
+            "type": "string",
+            "title": "Gather Time"
+          },
+          "price": {
+            "type": "integer",
+            "title": "Price"
+          },
+          "body": {
+            "type": "string",
+            "title": "Body"
+          },
           "organizer_profile": {
             "$ref": "#/components/schemas/UserSimpleProfile"
           },
-          "posted_date": { "type": "string", "title": "Posted Date" },
-          "is_active": { "type": "boolean", "title": "Is Active" },
-          "updated_at": { "type": "string", "title": "Updated At" },
+          "posted_date": {
+            "type": "string",
+            "title": "Posted Date"
+          },
+          "is_active": {
+            "type": "boolean",
+            "title": "Is Active"
+          },
+          "updated_at": {
+            "type": "string",
+            "title": "Updated At"
+          },
           "notice": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Notice"
           }
         },
@@ -1831,91 +5552,444 @@
       "PartyUpdateRequest": {
         "properties": {
           "title": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Title"
           },
           "body": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Body"
           },
           "gather_date": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Gather Date"
           },
           "gather_time": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Gather Time"
           },
           "place_id": {
-            "anyOf": [{ "type": "integer" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Place Id"
           },
           "place_name": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Place Name"
           },
           "address": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Address"
           },
           "longitude": {
-            "anyOf": [{ "type": "number" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Longitude"
           },
           "latitude": {
-            "anyOf": [{ "type": "number" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Latitude"
           },
           "participant_limit": {
-            "anyOf": [{ "type": "integer" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Participant Limit"
           },
           "participant_cost": {
-            "anyOf": [{ "type": "integer" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Participant Cost"
           },
           "sport_id": {
-            "anyOf": [{ "type": "integer" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Sport Id"
           },
           "notice": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Notice"
+          },
+          "is_active": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Active"
           }
         },
         "type": "object",
         "title": "PartyUpdateRequest"
       },
-      "RedirectUrlInfoResponse": {
+      "PostCommentRequest": {
         "properties": {
-          "redirect_url": { "type": "string", "title": "Redirect Url" }
+          "content": {
+            "type": "string",
+            "title": "Content"
+          }
         },
         "type": "object",
-        "required": ["redirect_url"],
+        "required": [
+          "content"
+        ],
+        "title": "PostCommentRequest"
+      },
+      "PostCreateResponse": {
+        "properties": {
+          "post_id": {
+            "type": "integer",
+            "title": "Post Id"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          }
+        },
+        "type": "object",
+        "required": [
+          "post_id",
+          "message"
+        ],
+        "title": "PostCreateResponse"
+      },
+      "PostDetailItemDto": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "body": {
+            "type": "string",
+            "title": "Body"
+          },
+          "writer": {
+            "$ref": "#/components/schemas/UserSimpleProfile"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "views": {
+            "type": "integer",
+            "title": "Views"
+          },
+          "likes": {
+            "type": "integer",
+            "title": "Likes"
+          },
+          "tags": {
+            "items": {
+              "$ref": "#/components/schemas/TagInfo"
+            },
+            "type": "array",
+            "title": "Tags"
+          },
+          "images": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Images"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "body",
+          "writer",
+          "created_at",
+          "views",
+          "likes",
+          "tags",
+          "images"
+        ],
+        "title": "PostDetailItemDto"
+      },
+      "PostListItemDto": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "body": {
+            "type": "string",
+            "title": "Body"
+          },
+          "writer": {
+            "$ref": "#/components/schemas/UserSimpleProfile"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "views": {
+            "type": "integer",
+            "title": "Views"
+          },
+          "likes": {
+            "type": "integer",
+            "title": "Likes"
+          },
+          "tags": {
+            "items": {
+              "$ref": "#/components/schemas/TagInfo"
+            },
+            "type": "array",
+            "title": "Tags"
+          },
+          "images": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Images"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "body",
+          "writer",
+          "created_at",
+          "views",
+          "likes",
+          "tags",
+          "images"
+        ],
+        "title": "PostListItemDto"
+      },
+      "PostListResponse": {
+        "properties": {
+          "total_count": {
+            "type": "integer",
+            "title": "Total Count"
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page"
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size"
+          },
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/PostListItemDto"
+            },
+            "type": "array",
+            "title": "Results"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_count",
+          "page",
+          "page_size",
+          "results"
+        ],
+        "title": "PostListResponse"
+      },
+      "PushSettingResponse": {
+        "properties": {
+          "push_enabled": {
+            "type": "boolean",
+            "title": "Push Enabled"
+          }
+        },
+        "type": "object",
+        "required": [
+          "push_enabled"
+        ],
+        "title": "PushSettingResponse"
+      },
+      "PushSettingUpdateRequest": {
+        "properties": {
+          "push_enabled": {
+            "type": "boolean",
+            "title": "Push Enabled"
+          }
+        },
+        "type": "object",
+        "required": [
+          "push_enabled"
+        ],
+        "title": "PushSettingUpdateRequest"
+      },
+      "RedirectUrlInfoResponse": {
+        "properties": {
+          "redirect_url": {
+            "type": "string",
+            "title": "Redirect Url"
+          }
+        },
+        "type": "object",
+        "required": [
+          "redirect_url"
+        ],
         "title": "RedirectUrlInfoResponse"
       },
       "SelfProfileResponse": {
         "properties": {
-          "id": { "type": "integer", "title": "Id" },
-          "name": { "type": "string", "title": "Name" },
-          "email": { "type": "string", "format": "email", "title": "Email" },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email"
+          },
           "introduction": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Introduction"
           },
           "profile_image": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Profile Image"
           },
           "interested_sports": {
             "anyOf": [
               {
-                "items": { "$ref": "#/components/schemas/SportInfo" },
+                "items": {
+                  "$ref": "#/components/schemas/SportInfo"
+                },
                 "type": "array"
               },
-              { "type": "null" }
+              {
+                "type": "null"
+              }
             ],
             "title": "Interested Sports"
+          },
+          "certificates": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/UserCertificateResponse"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Certificates"
           }
         },
         "type": "object",
@@ -1931,17 +6005,49 @@
       },
       "SocialAuthPlatform": {
         "type": "string",
-        "enum": ["google", "kakao", "naver"],
+        "enum": [
+          "google",
+          "kakao",
+          "naver",
+          "apple"
+        ],
         "title": "SocialAuthPlatform"
       },
       "SportInfo": {
         "properties": {
-          "id": { "type": "integer", "title": "Id" },
-          "name": { "type": "string", "title": "Name" }
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          }
         },
         "type": "object",
-        "required": ["id", "name"],
+        "required": [
+          "id",
+          "name"
+        ],
         "title": "SportInfo"
+      },
+      "TagInfo": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "title": "TagInfo"
       },
       "TestTokenInfo": {
         "properties": {
@@ -1955,28 +6061,146 @@
             "title": "Refresh Token",
             "default": ""
           },
-          "user_id": { "type": "integer", "title": "User Id" }
+          "user_id": {
+            "type": "integer",
+            "title": "User Id"
+          }
         },
         "type": "object",
-        "required": ["user_id"],
+        "required": [
+          "user_id"
+        ],
         "title": "TestTokenInfo"
+      },
+      "UserCertificateResponse": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "certificate_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Certificate Id"
+          },
+          "organization_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Organization Name"
+          },
+          "diving_type_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Diving Type Name"
+          },
+          "level": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Level"
+          },
+          "certificate_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Certificate Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "title": "UserCertificateResponse"
+      },
+      "UserCertificatesUpdateRequest": {
+        "properties": {
+          "certificate_ids": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Certificate Ids"
+          }
+        },
+        "type": "object",
+        "required": [
+          "certificate_ids"
+        ],
+        "title": "UserCertificatesUpdateRequest",
+        "description": "\uc0ac\uc6a9\uc790 \uc790\uaca9\uc99d \ubaa9\ub85d \uc5c5\ub370\uc774\ud2b8 \uc694\uccad"
       },
       "UserInfo": {
         "properties": {
           "sns_id": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Sns Id"
           },
           "name": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Name"
           },
           "email": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Email"
           },
           "profile_image": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Profile Image"
           }
         },
@@ -1985,35 +6209,73 @@
       },
       "UserPartyStatisticsResponse": {
         "properties": {
-          "created_count": { "type": "integer", "title": "Created Count" },
+          "created_count": {
+            "type": "integer",
+            "title": "Created Count"
+          },
           "participated_count": {
             "type": "integer",
             "title": "Participated Count"
           },
-          "liked_count": { "type": "integer", "title": "Liked Count" }
+          "liked_count": {
+            "type": "integer",
+            "title": "Liked Count"
+          }
         },
         "type": "object",
-        "required": ["created_count", "participated_count", "liked_count"],
+        "required": [
+          "created_count",
+          "participated_count",
+          "liked_count"
+        ],
         "title": "UserPartyStatisticsResponse"
       },
       "UserProfileUpdateRequest": {
         "properties": {
           "name": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Name"
           },
           "email": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Email"
           },
           "introduction": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Introduction"
           },
           "interested_sports_ids": {
             "anyOf": [
-              { "items": { "type": "integer" }, "type": "array" },
-              { "type": "null" }
+              {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
             ],
             "title": "Interested Sports Ids"
           }
@@ -2023,26 +6285,65 @@
       },
       "UserSimpleProfile": {
         "properties": {
-          "user_id": { "type": "integer", "title": "User Id" },
-          "profile_picture": { "type": "string", "title": "Profile Picture" },
-          "name": { "type": "string", "title": "Name" }
+          "user_id": {
+            "type": "integer",
+            "title": "User Id"
+          },
+          "profile_picture": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Profile Picture"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          }
         },
         "type": "object",
-        "required": ["user_id", "profile_picture", "name"],
+        "required": [
+          "user_id",
+          "profile_picture",
+          "name"
+        ],
         "title": "UserSimpleProfile"
       },
       "ValidationError": {
         "properties": {
           "loc": {
-            "items": { "anyOf": [{ "type": "string" }, { "type": "integer" }] },
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
             "type": "array",
             "title": "Location"
           },
-          "msg": { "type": "string", "title": "Message" },
-          "type": { "type": "string", "title": "Error Type" }
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
         },
         "type": "object",
-        "required": ["loc", "msg", "type"],
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
         "title": "ValidationError"
       },
       "certificate_levels": {
@@ -2050,37 +6351,95 @@
           "id": {
             "type": "integer",
             "maximum": 2147483647.0,
-            "minimum": 1.0,
+            "minimum": -2147483648.0,
             "title": "Id"
           },
-          "level": { "type": "string", "maxLength": 100, "title": "Level" }
+          "level": {
+            "type": "string",
+            "maxLength": 100,
+            "title": "Level"
+          }
         },
         "additionalProperties": false,
         "type": "object",
-        "required": ["id", "level"],
-        "title": "certificate_levels"
+        "required": [
+          "id",
+          "level"
+        ],
+        "title": "certificate_levels",
+        "description": "\ub808\uac70\uc2dc \uc790\uaca9\uc99d \ub808\ubca8 \ud14c\uc774\ube14 (\uae30\uc874 \ub370\uc774\ud130 \ud638\ud658\uc6a9)"
       },
       "certificate_name": {
         "properties": {
           "id": {
             "type": "integer",
             "maximum": 2147483647.0,
-            "minimum": 1.0,
+            "minimum": -2147483648.0,
             "title": "Id"
           },
-          "name": { "type": "string", "maxLength": 255, "title": "Name" }
+          "level": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 2147483647.0,
+                "minimum": -2147483648.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Level",
+            "default": 1
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 255,
+            "title": "Name"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "nullable": true
+          },
+          "is_active": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Active",
+            "default": true
+          }
         },
         "additionalProperties": false,
         "type": "object",
-        "required": ["id", "name"],
-        "title": "certificate_name"
+        "required": [
+          "id",
+          "name"
+        ],
+        "title": "certificate_name",
+        "description": "\uc790\uaca9\uc99d (\uae30\uad00\ubcc4 \ub808\ubca8\ubcc4 \uc790\uaca9\uc99d)"
       },
       "parties__dto__request__RefreshTokenRequest": {
         "properties": {
-          "new_status": { "$ref": "#/components/schemas/ParticipationStatus" }
+          "new_status": {
+            "$ref": "#/components/schemas/ParticipationStatus"
+          }
         },
         "type": "object",
-        "required": ["new_status"],
+        "required": [
+          "new_status"
+        ],
         "title": "RefreshTokenRequest"
       },
       "sports_name": {
@@ -2088,25 +6447,71 @@
           "id": {
             "type": "integer",
             "maximum": 2147483647.0,
-            "minimum": 1.0,
+            "minimum": -2147483648.0,
             "title": "Id"
           },
-          "name": { "type": "string", "maxLength": 255, "title": "Name" }
+          "name": {
+            "type": "string",
+            "maxLength": 255,
+            "title": "Name"
+          }
         },
         "additionalProperties": false,
         "type": "object",
-        "required": ["id", "name"],
+        "required": [
+          "id",
+          "name"
+        ],
         "title": "sports_name"
       },
       "users__dto__request__RefreshTokenRequest": {
         "properties": {
-          "refresh_token": { "type": "string", "title": "Refresh Token" }
+          "refresh_token": {
+            "type": "string",
+            "title": "Refresh Token"
+          }
         },
         "type": "object",
-        "required": ["refresh_token"],
+        "required": [
+          "refresh_token"
+        ],
         "title": "RefreshTokenRequest"
+      },
+      "users__dto__response__DivingTypeResponse": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "title": "DivingTypeResponse"
       }
     },
-    "securitySchemes": { "HTTPBasic": { "type": "http", "scheme": "basic" } }
+    "securitySchemes": {
+      "HTTPBasic": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
   }
 }
