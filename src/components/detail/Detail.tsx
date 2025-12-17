@@ -72,7 +72,7 @@ export const Detail = () => {
   const commentList = commentListData?.data;
   const partyDetail = data?.data;
   const currentUser = currentUserData?.data;
-  const likeList = likeData?.data;
+  const likeList = likeData?.data?.items ?? [];
 
   const pendingParticipants = partyDetail?.pending_participants ?? [];
   const approvedParticipants = partyDetail?.approved_participants ?? [];
@@ -82,7 +82,7 @@ export const Detail = () => {
   const approvedParticipantsLength =
     partyDetail?.approved_participants?.length ?? 0;
 
-  const isLikeParty = likeList?.some(({ id }) => id === partyId);
+  const isLikeParty = likeList.some(({ id }) => id === partyId);
 
   const isNotPartyMember = !approvedParticipants.some(
     (participant) => currentUser?.id === participant?.user_id,

@@ -73,6 +73,13 @@ const usePostUserMe = () => {
   return useMutation((data: PostUserMeRequestBody) => UserApi.post(data), {
     onSuccess: () => {
       queryClient.invalidateQueries(['userMe']);
+      // user/profile/* 쿼리도 모두 무효화하여 캐시된 프로필 데이터 갱신
+      queryClient.invalidateQueries({
+        predicate: (query) =>
+          Array.isArray(query.queryKey) &&
+          typeof query.queryKey[0] === 'string' &&
+          query.queryKey[0].startsWith('user/profile/'),
+      });
     },
     onError: (error: AxiosError<any>) =>
       snackbar.warning({ content: `${error.code} 내 정보 수정 실패` }),
@@ -89,6 +96,13 @@ const useUploadProfileImage = () => {
     {
       onSuccess: () => {
         queryClient.invalidateQueries(['userMe']);
+        // user/profile/* 쿼리도 모두 무효화하여 캐시된 프로필 이미지 갱신
+        queryClient.invalidateQueries({
+          predicate: (query) =>
+            Array.isArray(query.queryKey) &&
+            typeof query.queryKey[0] === 'string' &&
+            query.queryKey[0].startsWith('user/profile/'),
+        });
         snackbar.success({
           content: '프로필 이미지가 성공적으로 업데이트되었습니다.',
         });
