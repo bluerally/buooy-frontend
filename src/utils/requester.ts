@@ -5,7 +5,7 @@ import { getCookie } from 'cookies-next'; // cookies-next에서 getCookie 임포
 const TIME_OUT = 1000 * 120;
 
 const requester = axios.create({
-  baseURL: 'https://3.36.234.165.nip.io/api',
+  baseURL: 'https://158.179.168.121.nip.io/api',
   timeout: TIME_OUT,
   withCredentials: true,
   headers: {
